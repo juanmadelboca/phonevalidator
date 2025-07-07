@@ -1,0 +1,324 @@
+[
+  {
+    "countryName": "Afganistan",
+    "isoCode": "AF",
+    "dialCode": "93",
+    "visualText": "+93",
+    "emoji": "🇦🇫"
+  },
+  {
+    "countryName": "Arnavutluk",
+    "isoCode": "AL",
+    "dialCode": "355",
+    "visualText": "+355",
+    "emoji": "🇦🇱"
+  },
+  {
+    "countryName": "Cezayir",
+    "isoCode": "DZ",
+    "dialCode": "213",
+    "visualText": "+213",
+    "emoji": "🇩🇿"
+  },
+  {
+    "countryName": "Arjantin",
+    "isoCode": "AR",
+    "dialCode": "54",
+    "visualText": "+54",
+    "emoji": "🇦🇷"
+  },
+  {
+    "countryName": "Avustralya",
+    "isoCode": "AU",
+    "dialCode": "61",
+    "visualText": "+61",
+    "emoji": "🇦🇺"
+  },
+  {
+    "countryName": "Avusturya",
+    "isoCode": "AT",
+    "dialCode": "43",
+    "visualText": "+43",
+    "emoji": "🇦🇹"
+  },
+  {
+    "countryName": "Brezilya",
+    "isoCode": "BR",
+    "dialCode": "55",
+    "visualText": "+55",
+    "emoji": "🇧🇷"
+  },
+  {
+    "countryName": "Kanada",
+    "isoCode": "CA",
+    "dialCode": "1",
+    "visualText": "+1",
+    "emoji": "🇨🇦"
+  },
+  {
+    "countryName": "Şili",
+    "isoCode": "CL",
+    "dialCode": "56",
+    "visualText": "+56",
+    "emoji": "🇨🇱"
+  },
+  {
+    "countryName": "Çin",
+    "isoCode": "CN",
+    "dialCode": "86",
+    "visualText": "+86",
+    "emoji": "🇨🇳"
+  },
+  {
+    "countryName": "Kolombiya",
+    "isoCode": "CO",
+    "dialCode": "57",
+    "visualText": "+57",
+    "emoji": "🇨🇴"
+  },
+  {
+    "countryName": "Danimarka",
+    "isoCode": "DK",
+    "dialCode": "45",
+    "visualText": "+45",
+    "emoji": "🇩🇰"
+  },
+  {
+    "countryName": "Mısır",
+    "isoCode": "EG",
+    "dialCode": "20",
+    "visualText": "+20",
+    "emoji": "🇪🇬"
+  },
+  {
+    "countryName": "Fransa",
+    "isoCode": "FR",
+    "dialCode": "33",
+    "visualText": "+33",
+    "emoji": "🇫🇷"
+  },
+  {
+    "countryName": "Almanya",
+    "isoCode": "DE",
+    "dialCode": "49",
+    "visualText": "+49",
+    "emoji": "🇩🇪"
+  },
+  {
+    "countryName": "Hindistan",
+    "isoCode": "IN",
+    "dialCode": "91",
+    "visualText": "+91",
+    "emoji": "🇮🇳"
+  },
+  {
+    "countryName": "Endonezya",
+    "isoCode": "ID",
+    "dialCode": "62",
+    "visualText": "+62",
+    "emoji": "🇮🇩"
+  },
+  {
+    "countryName": "İtalya",
+    "isoCode": "IT",
+    "dialCode": "39",
+    "visualText": "+39",
+    "emoji": "🇮🇹"
+  },
+  {
+    "countryName": "Japonya",
+    "isoCode": "JP",
+    "dialCode": "81",
+    "visualText": "+81",
+    "emoji": "🇯🇵"
+  },
+  {
+    "countryName": "Meksika",
+    "isoCode": "MX",
+    "dialCode": "52",
+    "visualText": "+52",
+    "emoji": "🇲🇽"
+  },
+  {
+    "countryName": "Hollanda",
+    "isoCode": "NL",
+    "dialCode": "31",
+    "visualText": "+31",
+    "emoji": "🇳🇱"
+  },
+  {
+    "countryName": "Yeni Zelanda",
+    "isoCode": "NZ",
+    "dialCode": "64",
+    "visualText": "+64",
+    "emoji": "🇳🇿"
+  },
+  {
+    "countryName": "Nijerya",
+    "isoCode": "NG",
+    "dialCode": "234",
+    "visualText": "+234",
+    "emoji": "🇳🇬"
+  },
+  {
+    "countryName": "Norveç",
+    "isoCode": "NO",
+    "dialCode": "47",
+    "visualText": "+47",
+    "emoji": "🇳🇴"
+  },
+  {
+    "countryName": "Pakistan",
+    "isoCode": "PK",
+    "dialCode": "92",
+    "visualText": "+92",
+    "emoji": "🇵🇰"
+  },
+  {
+    "countryName": "Peru",
+    "isoCode": "PE",
+    "dialCode": "51",
+    "visualText": "+51",
+    "emoji": "🇵🇪"
+  },
+  {
+    "countryName": "Filipinler",
+    "isoCode": "PH",
+    "dialCode": "63",
+    "visualText": "+63",
+    "emoji": "🇵🇭"
+  },
+  {
+    "countryName": "Polonya",
+    "isoCode": "PL",
+    "dialCode": "48",
+    "visualText": "+48",
+    "emoji": "🇵🇱"
+  },
+  {
+    "countryName": "Portekiz",
+    "isoCode": "PT",
+    "dialCode": "351",
+    "visualText": "+351",
+    "emoji": "🇵🇹"
+  },
+  {
+    "countryName": "Rusya",
+    "isoCode": "RU",
+    "dialCode": "7",
+    "visualText": "+7",
+    "emoji": "🇷🇺"
+  },
+  {
+    "countryName": "Suudi Arabistan",
+    "isoCode": "SA",
+    "dialCode": "966",
+    "visualText": "+966",
+    "emoji": "🇸🇦"
+  },
+  {
+    "countryName": "Singapur",
+    "isoCode": "SG",
+    "dialCode": "65",
+    "visualText": "+65",
+    "emoji": "🇸🇬"
+  },
+  {
+    "countryName": "Güney Afrika",
+    "isoCode": "ZA",
+    "dialCode": "27",
+    "visualText": "+27",
+    "emoji": "🇿🇦"
+  },
+  {
+    "countryName": "Güney Kore",
+    "isoCode": "KR",
+    "dialCode": "82",
+    "visualText": "+82",
+    "emoji": "🇰🇷"
+  },
+  {
+    "countryName": "İspanya",
+    "isoCode": "ES",
+    "dialCode": "34",
+    "visualText": "+34",
+    "emoji": "🇪🇸"
+  },
+  {
+    "countryName": "İsveç",
+    "isoCode": "SE",
+    "dialCode": "46",
+    "visualText": "+46",
+    "emoji": "🇸🇪"
+  },
+  {
+    "countryName": "İsviçre",
+    "isoCode": "CH",
+    "dialCode": "41",
+    "visualText": "+41",
+    "emoji": "🇨🇭"
+  },
+  {
+    "countryName": "Tayland",
+    "isoCode": "TH",
+    "dialCode": "66",
+    "visualText": "+66",
+    "emoji": "🇹🇭"
+  },
+  {
+    "countryName": "Türkiye",
+    "isoCode": "TR",
+    "dialCode": "90",
+    "visualText": "+90",
+    "emoji": "🇹🇷"
+  },
+  {
+    "countryName": "Ukrayna",
+    "isoCode": "UA",
+    "dialCode": "380",
+    "visualText": "+380",
+    "emoji": "🇺🇦"
+  },
+  {
+    "countryName": "Birleşik Arap Emirlikleri",
+    "isoCode": "AE",
+    "dialCode": "971",
+    "visualText": "+971",
+    "emoji": "🇦🇪"
+  },
+  {
+    "countryName": "Birleşik Krallık",
+    "isoCode": "GB",
+    "dialCode": "44",
+    "visualText": "+44",
+    "emoji": "🇬🇧"
+  },
+  {
+    "countryName": "Amerika Birleşik Devletleri",
+    "isoCode": "US",
+    "dialCode": "1",
+    "visualText": "+1",
+    "emoji": "🇺🇸"
+  },
+  {
+    "countryName": "Uruguay",
+    "isoCode": "UY",
+    "dialCode": "598",
+    "visualText": "+598",
+    "emoji": "🇺🇾"
+  },
+  {
+    "countryName": "Venezuela",
+    "isoCode": "VE",
+    "dialCode": "58",
+    "visualText": "+58",
+    "emoji": "🇻🇪"
+  },
+  {
+    "countryName": "Vietnam",
+    "isoCode": "VN",
+    "dialCode": "84",
+    "visualText": "+84",
+    "emoji": "🇻🇳"
+  }
+]

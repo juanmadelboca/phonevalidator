@@ -1,0 +1,416 @@
+[
+  {
+    "countryName": "أفغانستان",
+    "isoCode": "AF",
+    "dialCode": "93",
+    "visualText": "+93",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇦🇫"
+  },
+  {
+    "countryName": "ألبانيا",
+    "isoCode": "AL",
+    "dialCode": "355",
+    "visualText": "+355",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇦🇱"
+  },
+  {
+    "countryName": "الجزائر",
+    "isoCode": "DZ",
+    "dialCode": "213",
+    "visualText": "+213",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇩🇿"
+  },
+  {
+    "countryName": "الأرجنتين",
+    "isoCode": "AR",
+    "dialCode": "54",
+    "visualText": "+54",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇦🇷"
+  },
+  {
+    "countryName": "أستراليا",
+    "isoCode": "AU",
+    "dialCode": "61",
+    "visualText": "+61",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇦🇺"
+  },
+  {
+    "countryName": "النمسا",
+    "isoCode": "AT",
+    "dialCode": "43",
+    "visualText": "+43",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇦🇹"
+  },
+  {
+    "countryName": "البرازيل",
+    "isoCode": "BR",
+    "dialCode": "55",
+    "visualText": "+55",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇧🇷"
+  },
+  {
+    "countryName": "كندا",
+    "isoCode": "CA",
+    "dialCode": "1",
+    "visualText": "+1",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇨🇦"
+  },
+  {
+    "countryName": "تشيلي",
+    "isoCode": "CL",
+    "dialCode": "56",
+    "visualText": "+56",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇨🇱"
+  },
+  {
+    "countryName": "الصين",
+    "isoCode": "CN",
+    "dialCode": "86",
+    "visualText": "+86",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇨🇳"
+  },
+  {
+    "countryName": "كولومبيا",
+    "isoCode": "CO",
+    "dialCode": "57",
+    "visualText": "+57",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇨🇴"
+  },
+  {
+    "countryName": "الدنمارك",
+    "isoCode": "DK",
+    "dialCode": "45",
+    "visualText": "+45",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇩🇰"
+  },
+  {
+    "countryName": "مصر",
+    "isoCode": "EG",
+    "dialCode": "20",
+    "visualText": "+20",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇪🇬"
+  },
+  {
+    "countryName": "فرنسا",
+    "isoCode": "FR",
+    "dialCode": "33",
+    "visualText": "+33",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇫🇷"
+  },
+  {
+    "countryName": "ألمانيا",
+    "isoCode": "DE",
+    "dialCode": "49",
+    "visualText": "+49",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇩🇪"
+  },
+  {
+    "countryName": "الهند",
+    "isoCode": "IN",
+    "dialCode": "91",
+    "visualText": "+91",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇮🇳"
+  },
+  {
+    "countryName": "إندونيسيا",
+    "isoCode": "ID",
+    "dialCode": "62",
+    "visualText": "+62",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇮🇩"
+  },
+  {
+    "countryName": "إيطاليا",
+    "isoCode": "IT",
+    "dialCode": "39",
+    "visualText": "+39",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇮🇹"
+  },
+  {
+    "countryName": "اليابان",
+    "isoCode": "JP",
+    "dialCode": "81",
+    "visualText": "+81",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇯🇵"
+  },
+  {
+    "countryName": "المكسيك",
+    "isoCode": "MX",
+    "dialCode": "52",
+    "visualText": "+52",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇲🇽"
+  },
+  {
+    "countryName": "هولندا",
+    "isoCode": "NL",
+    "dialCode": "31",
+    "visualText": "+31",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇳🇱"
+  },
+  {
+    "countryName": "نيوزيلندا",
+    "isoCode": "NZ",
+    "dialCode": "64",
+    "visualText": "+64",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇳🇿"
+  },
+  {
+    "countryName": "نيجيريا",
+    "isoCode": "NG",
+    "dialCode": "234",
+    "visualText": "+234",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇳🇬"
+  },
+  {
+    "countryName": "النرويج",
+    "isoCode": "NO",
+    "dialCode": "47",
+    "visualText": "+47",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇳🇴"
+  },
+  {
+    "countryName": "باكستان",
+    "isoCode": "PK",
+    "dialCode": "92",
+    "visualText": "+92",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇵🇰"
+  },
+  {
+    "countryName": "بيرو",
+    "isoCode": "PE",
+    "dialCode": "51",
+    "visualText": "+51",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇵🇪"
+  },
+  {
+    "countryName": "الفلبين",
+    "isoCode": "PH",
+    "dialCode": "63",
+    "visualText": "+63",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇵🇭"
+  },
+  {
+    "countryName": "بولندا",
+    "isoCode": "PL",
+    "dialCode": "48",
+    "visualText": "+48",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇵🇱"
+  },
+  {
+    "countryName": "البرتغال",
+    "isoCode": "PT",
+    "dialCode": "351",
+    "visualText": "+351",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇵🇹"
+  },
+  {
+    "countryName": "روسيا",
+    "isoCode": "RU",
+    "dialCode": "7",
+    "visualText": "+7",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇷🇺"
+  },
+  {
+    "countryName": "المملكة العربية السعودية",
+    "isoCode": "SA",
+    "dialCode": "966",
+    "visualText": "+966",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇸🇦"
+  },
+  {
+    "countryName": "سنغافورة",
+    "isoCode": "SG",
+    "dialCode": "65",
+    "visualText": "+65",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇸🇬"
+  },
+  {
+    "countryName": "جنوب أفريقيا",
+    "isoCode": "ZA",
+    "dialCode": "27",
+    "visualText": "+27",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇿🇦"
+  },
+  {
+    "countryName": "كوريا الجنوبية",
+    "isoCode": "KR",
+    "dialCode": "82",
+    "visualText": "+82",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇰🇷"
+  },
+  {
+    "countryName": "إسبانيا",
+    "isoCode": "ES",
+    "dialCode": "34",
+    "visualText": "+34",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇪🇸"
+  },
+  {
+    "countryName": "السويد",
+    "isoCode": "SE",
+    "dialCode": "46",
+    "visualText": "+46",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇸🇪"
+  },
+  {
+    "countryName": "سويسرا",
+    "isoCode": "CH",
+    "dialCode": "41",
+    "visualText": "+41",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇨🇭"
+  },
+  {
+    "countryName": "تايلاند",
+    "isoCode": "TH",
+    "dialCode": "66",
+    "visualText": "+66",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇹🇭"
+  },
+  {
+    "countryName": "تركيا",
+    "isoCode": "TR",
+    "dialCode": "90",
+    "visualText": "+90",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇹🇷"
+  },
+  {
+    "countryName": "أوكرانيا",
+    "isoCode": "UA",
+    "dialCode": "380",
+    "visualText": "+380",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇺🇦"
+  },
+  {
+    "countryName": "الإمارات العربية المتحدة",
+    "isoCode": "AE",
+    "dialCode": "971",
+    "visualText": "+971",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇦🇪"
+  },
+  {
+    "countryName": "المملكة المتحدة",
+    "isoCode": "GB",
+    "dialCode": "44",
+    "visualText": "+44",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇬🇧"
+  },
+  {
+    "countryName": "الولايات المتحدة",
+    "isoCode": "US",
+    "dialCode": "1",
+    "visualText": "+1",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇺🇸"
+  },
+  {
+    "countryName": "أوروغواي",
+    "isoCode": "UY",
+    "dialCode": "598",
+    "visualText": "+598",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇺🇾"
+  },
+  {
+    "countryName": "فنزويلا",
+    "isoCode": "VE",
+    "dialCode": "58",
+    "visualText": "+58",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇻🇪"
+  },
+  {
+    "countryName": "فيتنام",
+    "isoCode": "VN",
+    "dialCode": "84",
+    "visualText": "+84",
+    "pattern": "^\\d{10}$",
+    "mask": "(###) ###-####",
+    "emoji": "🇻🇳"
+  }
+]

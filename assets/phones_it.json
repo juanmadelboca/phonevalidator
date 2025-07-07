@@ -1,0 +1,278 @@
+[
+  {
+    "countryName": "Afghanistan",
+    "isoCode": "AF",
+    "dialCode": "93",
+    "visualText": "+93"
+  },
+  {
+    "countryName": "Albania",
+    "isoCode": "AL",
+    "dialCode": "355",
+    "visualText": "+355"
+  },
+  {
+    "countryName": "Algeria",
+    "isoCode": "DZ",
+    "dialCode": "213",
+    "visualText": "+213"
+  },
+  {
+    "countryName": "Argentina",
+    "isoCode": "AR",
+    "dialCode": "54",
+    "visualText": "+54"
+  },
+  {
+    "countryName": "Australia",
+    "isoCode": "AU",
+    "dialCode": "61",
+    "visualText": "+61"
+  },
+  {
+    "countryName": "Austria",
+    "isoCode": "AT",
+    "dialCode": "43",
+    "visualText": "+43"
+  },
+  {
+    "countryName": "Brasile",
+    "isoCode": "BR",
+    "dialCode": "55",
+    "visualText": "+55"
+  },
+  {
+    "countryName": "Canada",
+    "isoCode": "CA",
+    "dialCode": "1",
+    "visualText": "+1"
+  },
+  {
+    "countryName": "Cile",
+    "isoCode": "CL",
+    "dialCode": "56",
+    "visualText": "+56"
+  },
+  {
+    "countryName": "Cina",
+    "isoCode": "CN",
+    "dialCode": "86",
+    "visualText": "+86"
+  },
+  {
+    "countryName": "Colombia",
+    "isoCode": "CO",
+    "dialCode": "57",
+    "visualText": "+57"
+  },
+  {
+    "countryName": "Danimarca",
+    "isoCode": "DK",
+    "dialCode": "45",
+    "visualText": "+45"
+  },
+  {
+    "countryName": "Egitto",
+    "isoCode": "EG",
+    "dialCode": "20",
+    "visualText": "+20"
+  },
+  {
+    "countryName": "Francia",
+    "isoCode": "FR",
+    "dialCode": "33",
+    "visualText": "+33"
+  },
+  {
+    "countryName": "Germania",
+    "isoCode": "DE",
+    "dialCode": "49",
+    "visualText": "+49"
+  },
+  {
+    "countryName": "India",
+    "isoCode": "IN",
+    "dialCode": "91",
+    "visualText": "+91"
+  },
+  {
+    "countryName": "Indonesia",
+    "isoCode": "ID",
+    "dialCode": "62",
+    "visualText": "+62"
+  },
+  {
+    "countryName": "Italia",
+    "isoCode": "IT",
+    "dialCode": "39",
+    "visualText": "+39"
+  },
+  {
+    "countryName": "Giappone",
+    "isoCode": "JP",
+    "dialCode": "81",
+    "visualText": "+81"
+  },
+  {
+    "countryName": "Messico",
+    "isoCode": "MX",
+    "dialCode": "52",
+    "visualText": "+52"
+  },
+  {
+    "countryName": "Paesi Bassi",
+    "isoCode": "NL",
+    "dialCode": "31",
+    "visualText": "+31"
+  },
+  {
+    "countryName": "Nuova Zelanda",
+    "isoCode": "NZ",
+    "dialCode": "64",
+    "visualText": "+64"
+  },
+  {
+    "countryName": "Nigeria",
+    "isoCode": "NG",
+    "dialCode": "234",
+    "visualText": "+234"
+  },
+  {
+    "countryName": "Norvegia",
+    "isoCode": "NO",
+    "dialCode": "47",
+    "visualText": "+47"
+  },
+  {
+    "countryName": "Pakistan",
+    "isoCode": "PK",
+    "dialCode": "92",
+    "visualText": "+92"
+  },
+  {
+    "countryName": "Perù",
+    "isoCode": "PE",
+    "dialCode": "51",
+    "visualText": "+51"
+  },
+  {
+    "countryName": "Filippine",
+    "isoCode": "PH",
+    "dialCode": "63",
+    "visualText": "+63"
+  },
+  {
+    "countryName": "Polonia",
+    "isoCode": "PL",
+    "dialCode": "48",
+    "visualText": "+48"
+  },
+  {
+    "countryName": "Portogallo",
+    "isoCode": "PT",
+    "dialCode": "351",
+    "visualText": "+351"
+  },
+  {
+    "countryName": "Russia",
+    "isoCode": "RU",
+    "dialCode": "7",
+    "visualText": "+7"
+  },
+  {
+    "countryName": "Arabia Saudita",
+    "isoCode": "SA",
+    "dialCode": "966",
+    "visualText": "+966"
+  },
+  {
+    "countryName": "Singapore",
+    "isoCode": "SG",
+    "dialCode": "65",
+    "visualText": "+65"
+  },
+  {
+    "countryName": "Sudafrica",
+    "isoCode": "ZA",
+    "dialCode": "27",
+    "visualText": "+27"
+  },
+  {
+    "countryName": "Corea del Sud",
+    "isoCode": "KR",
+    "dialCode": "82",
+    "visualText": "+82"
+  },
+  {
+    "countryName": "Spagna",
+    "isoCode": "ES",
+    "dialCode": "34",
+    "visualText": "+34"
+  },
+  {
+    "countryName": "Svezia",
+    "isoCode": "SE",
+    "dialCode": "46",
+    "visualText": "+46"
+  },
+  {
+    "countryName": "Svizzera",
+    "isoCode": "CH",
+    "dialCode": "41",
+    "visualText": "+41"
+  },
+  {
+    "countryName": "Thailandia",
+    "isoCode": "TH",
+    "dialCode": "66",
+    "visualText": "+66"
+  },
+  {
+    "countryName": "Turchia",
+    "isoCode": "TR",
+    "dialCode": "90",
+    "visualText": "+90"
+  },
+  {
+    "countryName": "Ucraina",
+    "isoCode": "UA",
+    "dialCode": "380",
+    "visualText": "+380"
+  },
+  {
+    "countryName": "Emirati Arabi Uniti",
+    "isoCode": "AE",
+    "dialCode": "971",
+    "visualText": "+971"
+  },
+  {
+    "countryName": "Regno Unito",
+    "isoCode": "GB",
+    "dialCode": "44",
+    "visualText": "+44"
+  },
+  {
+    "countryName": "Stati Uniti",
+    "isoCode": "US",
+    "dialCode": "1",
+    "visualText": "+1"
+  },
+  {
+    "countryName": "Uruguay",
+    "isoCode": "UY",
+    "dialCode": "598",
+    "visualText": "+598"
+  },
+  {
+    "countryName": "Venezuela",
+    "isoCode": "VE",
+    "dialCode": "58",
+    "visualText": "+58"
+  },
+  {
+    "countryName": "Vietnam",
+    "isoCode": "VN",
+    "dialCode": "84",
+    "visualText": "+84"
+  }
+]
