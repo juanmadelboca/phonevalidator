@@ -46,4 +46,8 @@ class Country{
 
   @override
   String toString() => '$countryName ($visualText) $emoji';
+
+  String getDefaultView(){
+    return '$emoji $isoCode';
+  }
 }

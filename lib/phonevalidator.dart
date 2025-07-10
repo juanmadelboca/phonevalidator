@@ -1,5 +1,6 @@
-/// A Calculator.
-class PhoneValidator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+library phonevalidator;
+
+export 'src/Controllers/CountryManager.dart';
+export 'src/models/Country.dart';
+export 'src/View/PhoneView/PhoneValidatorWidget.dart';
+export 'src/Controllers/PhoneValidator.dart';
