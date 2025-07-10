@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:phonevalidator/src/Controllers/CountryManager.dart';
-import 'package:phonevalidator/src/Utils/MaskedTextInputFormatter.dart';
-import 'package:phonevalidator/src/models/Country.dart';
+import 'package:cellphone_validator/src/Controllers/CountryManager.dart';
+import 'package:cellphone_validator/src/Utils/MaskedTextInputFormatter.dart';
+import 'package:cellphone_validator/src/models/Country.dart';
 
 import '../../Controllers/PhoneValidator.dart';
 import '../../assets/CountriesNames/countries_names.dart';

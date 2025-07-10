@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:phonevalidator/src/View/PhoneView/PhoneValidatorWidget.dart';
-import 'package:phonevalidator/src/Controllers/PhoneValidator.dart';
+import 'package:cellphone_validator/src/View/PhoneView/PhoneValidatorWidget.dart';
+import 'package:cellphone_validator/src/Controllers/PhoneValidator.dart';
 
 void main() {
   runApp(const MyApp());

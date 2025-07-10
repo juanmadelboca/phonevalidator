@@ -1,4 +1,4 @@
-library phonevalidator;
+library cellphone_validator;
 
 export 'src/Controllers/CountryManager.dart';
 export 'src/models/Country.dart';

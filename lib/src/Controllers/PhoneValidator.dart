@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:phonevalidator/phonevalidator.dart';
+import 'package:cellphone_validator/phonevalidator.dart';
 
 class PhoneValidator{
 
