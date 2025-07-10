@@ -1,8 +1,9 @@
 # Cellphone Validator
 A powerful and easy-to-use Flutter package for validating and formatting international phone numbers. Includes a customizable country code picker and provides detailed information for hundreds of countries.
-![First view](https://github.com/DecksPlayer/phonevalidator/blob/main/assets/0.png)
-
-<br/>
+![Screenshot 1](https://raw.githubusercontent.com/DecksPlayer/phonevalidator/main/assets/0.png)
+![Screenshot 2](https://raw.githubusercontent.com/DecksPlayer/phonevalidator/main/assets/3.png)
+![Screenshot 3](https://raw.githubusercontent.com/DecksPlayer/phonevalidator/main/assets/2.png)
+<br />
 
 ## Features
 
@@ -29,7 +30,13 @@ Then, run `flutter pub get` in your terminal to install the package.
 
 Here is a practical example of how to implement the `PhoneValidatorWidget`.
 
-### 1. Create a PhoneValidator Controller
+### 1. Import the Package
+```dart
+import 'package:cellphone_validator/src/view/phone_view/phone_validator_widget.dart';
+import 'package:cellphone_validator/src/controllers/phone_validator.dart';
+```
+
+### 2. Create a PhoneValidator Controller
 
 First, create a `ValueNotifier` in your `State` to hold the `PhoneValidator` instance. This will manage the state of the phone input.
 
@@ -44,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-### 2. Add the Widget to your UI
+### 3. Add the Widget to your UI
 
 Place the `PhoneValidatorWidget` in your widget tree and pass it the controller you just created.
 
@@ -68,7 +75,7 @@ Widget build(BuildContext context) {
 }
 ```
 
-### 3. Listen for Changes
+### 4. Listen for Changes
 
 You can listen to the `isValidPhoneNotifier` within the controller to react to changes in the phone number's validity in real-time.
 

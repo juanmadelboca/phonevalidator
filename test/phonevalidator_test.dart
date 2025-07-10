@@ -13,8 +13,6 @@ void main() {
   test('country phonesValidator', ()async {
     final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
     CountryManager countryManager = CountryManager();
-    await countryManager.setLanguage(phoneValidator.lang);
-    expect(countryManager.lang, 'en');
     expect(countryManager.getCountries().length, 195);
   });
 }

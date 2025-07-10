@@ -12,7 +12,7 @@ import 'countries_names_pt.dart';
 import 'countries_names_ru.dart';
 import 'countries_names_zh.dart';
 
-String CountryNames(String lang,String isoCode){
+String countryNames(String lang,String isoCode){
   switch(lang.toLowerCase()){
     case 'es':
       return _getName(countries_es, isoCode);

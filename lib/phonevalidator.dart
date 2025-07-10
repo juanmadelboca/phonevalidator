@@ -1,6 +1,6 @@
 library cellphone_validator;
 
-export 'src/Controllers/CountryManager.dart';
-export 'src/models/Country.dart';
-export 'src/View/PhoneView/PhoneValidatorWidget.dart';
-export 'src/Controllers/PhoneValidator.dart';
+export 'src/controllers/country_manager.dart';
+export 'src/models/country.dart';
+export 'src/view/phone_view/phone_validator_widget.dart';
+export 'src/controllers/phone_validator.dart';

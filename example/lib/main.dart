@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:cellphone_validator/src/View/PhoneView/PhoneValidatorWidget.dart';
-import 'package:cellphone_validator/src/Controllers/PhoneValidator.dart';
+import 'package:cellphone_validator/src/view/phone_view/phone_validator_widget.dart';
+import 'package:cellphone_validator/src/controllers/phone_validator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   ValueNotifier<PhoneValidator> phoneValidator = ValueNotifier(PhoneValidator(lang: 'en'));
   String selectedLanguage = 'en'; // Default language
-  final List<String> languages = ['en', 'es', 'fr','ko','de','ru']; // Add more languages as needed
+  final List<String> languages = ['ar','hi','id','it','ja','pt','en', 'es', 'fr','ko','de','ru']; // Add more languages as needed
 
   @override
   Widget build(BuildContext context) {
@@ -47,19 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
-          DropdownButton<String>(
-            value: phoneValidator.value.lang,
-            icon: const Icon(Icons.language),
-            onChanged: (String? newValue) {
-              phoneValidator.value = PhoneValidator(lang: newValue!);
-            },
-            items: languages.map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value.toUpperCase()),
-              );
-            }).toList(),
-          ),
+          languageDropdown()
         ],
       ),
       body: Center(
@@ -80,6 +68,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     ));
   }
+
+  DropdownButton <String> languageDropdown(){
+   return DropdownButton<String>(
+      value: phoneValidator.value.lang,
+      icon: const Icon(Icons.language),
+      onChanged: (String? newValue) {
+        phoneValidator.value = PhoneValidator(lang: newValue!);
+      },
+      items: languages.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value.toUpperCase()),
+        );
+      }).toList(),
+    );
+  }
+
 }
 
 

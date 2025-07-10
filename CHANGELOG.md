@@ -33,3 +33,11 @@
 ## 1.0.5
 - add coments
 - Fix Documentation
+
+## 1.0.6
+- fix documentation
+
+## 1.0.7
+- fix documentation
+- bugs fixed
+- improvements the code
