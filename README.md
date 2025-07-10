@@ -1,6 +1,6 @@
 # Phone Validator
 
-![First View](https://github.com/DecksPlayer/phonevalidator/blob/main/assets/1.png)
+<img src="https://github.com/DecksPlayer/phonevalidator/blob/main/assets/1.png" alt="First View" width="300"/>
 A powerful and easy-to-use Flutter package for validating and formatting international phone numbers. Includes a customizable country code picker and provides detailed information for hundreds of countries.
 
 <br/>
