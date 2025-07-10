@@ -7,6 +7,11 @@ import 'package:cellphone_validator/src/models/Country.dart';
 
 import '../../Controllers/PhoneValidator.dart';
 import '../../assets/CountriesNames/countries_names.dart';
+/// [PhoneValidatorWidget] is a StatefulWidget that provides a UI for phone number validation.
+///
+/// It includes a dropdown for country selection and a text field for phone number input.
+/// The widget utilizes [PhoneValidator] to handle the validation logic and
+/// [CountryManager] to manage country-specific information.
 class PhoneValidatorWidget extends StatefulWidget{
   PhoneValidator phoneValidator;
   PhoneValidatorWidget({super.key, required this.phoneValidator});
@@ -14,6 +19,10 @@ class PhoneValidatorWidget extends StatefulWidget{
   @override
   State<PhoneValidatorWidget> createState ()=> _PhoneValidatorWidget();
 }
+
+/// [_PhoneValidatorWidget] is the state class for [PhoneValidatorWidget].
+///
+/// It manages the state of the widget, including loading status, country list, and input controllers.
 class _PhoneValidatorWidget extends State<PhoneValidatorWidget>{
   final CountryManager countryManager= CountryManager();
   bool _loading = true;
@@ -28,6 +37,10 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget>{
     loadLanguage();
   }
 
+ /// Loads language-specific country data.
+  ///
+  /// This method sets the language in [CountryManager], retrieves the list of countries,
+  /// and updates the loading state. It also selects the first country by default if available.
  Future<void> loadLanguage() async{
 
     await countryManager.setLanguage(widget.phoneValidator.lang);
@@ -38,6 +51,11 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget>{
     }
  }
 
+  /// Called when the widget configuration changes.
+  ///
+  /// If the language in [PhoneValidator] changes, it reloads the language data,
+  /// clears the phone input field, and resets the phone validation status.
+  /// - [oldWidget]: The old widget configuration.
   @override
   void didUpdateWidget(covariant PhoneValidatorWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -49,6 +67,11 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget>{
     }
   }
 
+  /// Builds the widget tree for the phone validator.
+  ///
+  /// It displays a loading indicator while data is being fetched, otherwise,
+  /// it shows a dropdown for country selection and a text field for phone number input.
+  /// - [context]: The build context.
   @override
   Widget build(BuildContext context) {
 
@@ -103,13 +126,19 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget>{
     
   }
 
+  /// Handles the selection of a country from the dropdown.
+  ///
+  /// Updates the selected country in [PhoneValidator] and triggers a state update.
+  /// - [selected]: The newly selected country.
   Future<void> chooseCountry(Country? selected) async{
      if(selected==null) return;
      setState(() {
        widget.phoneValidator.setCountry(selected);
      });
   }
-
+  /// Retrieves the input formatters for the phone number field.
+  ///
+  /// Returns a list of [TextInputFormatter] including [MaskedTextInputFormatter] if a country is selected.
 
 
   List<TextInputFormatter> getInputFormater(){

@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 
+/// A [TextInputFormatter] that applies a mask to the input text.
 class MaskedTextInputFormatter extends TextInputFormatter {
   final String mask;
   final String separator;
@@ -9,6 +10,7 @@ class MaskedTextInputFormatter extends TextInputFormatter {
     this.separator = '#',
   });
 
+  /// Formats the input text according to the mask.
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue,

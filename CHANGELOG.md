@@ -24,3 +24,12 @@
 
 ## 1.0.2
 - Fix Documentation
+
+## 1.0.3
+- Fix Documentation
+## 1.0.4
+- Fix Documentation
+
+## 1.0.5
+- add coments
+- Fix Documentation
