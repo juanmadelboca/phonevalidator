@@ -1,10 +1,8 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:phonevalidator/src/Controllers/CountryManager.dart';
 import 'package:phonevalidator/src/Utils/MaskedTextInputFormatter.dart';
-import 'package:phonevalidator/src/assets/phones/phones.dart';
 import 'package:phonevalidator/src/models/Country.dart';
 
 import '../../Controllers/PhoneValidator.dart';

@@ -38,6 +38,8 @@ String CountryNames(String lang,String isoCode){
       return _getName(countries_ar, isoCode);
     case 'id':
       return _getName(countries_id, isoCode);
+    case 'hi':
+      return _getName(countries_hi, isoCode);
     default:
       return _getName(countries_en,isoCode);
   }
