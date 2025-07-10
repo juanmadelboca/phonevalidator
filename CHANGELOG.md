@@ -19,3 +19,5 @@
   - zh *Chinese*
 - Configurable phone validator
 
+## 1.0.1
+- Fix Documentation
