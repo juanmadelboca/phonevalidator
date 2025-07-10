@@ -41,3 +41,6 @@
 - fix documentation
 - bugs fixed
 - improvements the code
+
+## 1.0.8
+- import bugs fixed

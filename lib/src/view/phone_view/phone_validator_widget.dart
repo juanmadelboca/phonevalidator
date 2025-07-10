@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../phonevalidator.dart';
-import '../../assets/CountriesNames/countries_names.dart';
+import '../../assets/countriesNames/countries_names.dart';
 import '../../utils/masked_text_input_formatter.dart';
 
 /// [PhoneValidatorWidget] is a StatefulWidget that provides a UI for phone number validation.

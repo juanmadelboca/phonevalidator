@@ -14,7 +14,7 @@ class CountryManager {
   ///
   /// Simulates a network delay of 1 second.
   /// [lang] is currently unused in this implementation but is kept for future use.
-  Future<List<Country>> loadCountries() async {
+  Future<List<Country>> _loadCountries() async {
     try {
       _isLoading = true;
       _hasError = false;
@@ -44,7 +44,7 @@ class CountryManager {
   /// Sets [_isLoading] to false and updates [_hasError] based on the result.
   ///
   Future<void> initializeCountries() async {
-     _cachedCountries = await loadCountries();
+     _cachedCountries = await _loadCountries();
      _isLoading = false;
     _hasError = _cachedCountries.isEmpty;
   }
