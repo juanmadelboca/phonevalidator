@@ -21,3 +21,6 @@
 
 ## 1.0.1
 - Fix Documentation
+
+## 1.0.2
+- Fix Documentation

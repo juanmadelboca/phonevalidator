@@ -1,6 +1,5 @@
 # Cellphone Validator
-
-<img src="https://github.com/DecksPlayer/phonevalidator/blob/main/assets/0.png" alt="First View" height="350"/>
+![First view](https://github.com/DecksPlayer/phonevalidator/blob/main/assets/0.png)
 A powerful and easy-to-use Flutter package for validating and formatting international phone numbers. Includes a customizable country code picker and provides detailed information for hundreds of countries.
 
 <br/>
@@ -21,7 +20,7 @@ To start using the package, add the `cellphone_validator` dependency to your `pu
 dependencies:
   flutter:
     sdk: flutter
-  phonevalidator: ^1.0.0 # Replace with the latest version
+  cellphone_validator: ^1.0.0 # Replace with the latest version
 ```
 
 Then, run `flutter pub get` in your terminal to install the package.
