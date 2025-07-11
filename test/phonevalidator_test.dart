@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:cellphone_validator/phonevalidator.dart';
+import 'package:cellphone_validator/cellphone_validator.dart';
 
 void main() {
   test('init phonesValidator', () {

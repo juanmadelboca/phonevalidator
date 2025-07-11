@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../phonevalidator.dart';
+import '../../cellphone_validator.dart';
 
 /// A class responsible for validating phone numbers based on a selected country.
 class PhoneValidator{

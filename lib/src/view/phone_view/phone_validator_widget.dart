@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../phonevalidator.dart';
+import '../../../cellphone_validator.dart';
 import '../../assets/countriesNames/countries_names.dart';
 import '../../utils/masked_text_input_formatter.dart';
 
