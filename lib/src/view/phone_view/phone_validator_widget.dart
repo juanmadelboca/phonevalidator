@@ -10,8 +10,9 @@ import '../../utils/masked_text_input_formatter.dart';
 /// It includes a dropdown for country selection and a text field for phone number input.
 /// The widget utilizes [PhoneValidator] to handle the validation logic and
 /// [CountryManager] to manage country-specific information.
+@immutable
 class PhoneValidatorWidget extends StatefulWidget {
-  PhoneValidator phoneValidator;
+  final PhoneValidator phoneValidator;
   PhoneValidatorWidget({super.key, required this.phoneValidator});
 
   @override
@@ -71,14 +72,14 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
   @override
   Widget build(BuildContext context) {
     if (_loading) {
-      return Padding(
+      return const Padding(
           padding: EdgeInsets.all(10),
           child: Center(
             child: CircularProgressIndicator(),
           ));
     }
     return Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -171,8 +172,8 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
         return DropdownMenuItem<Country>(
           value: country,
           child: Padding(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              child: Text('${country.getDefaultView()}')),
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: Text(country.getDefaultView())),
         );
       }).toList(),
     );

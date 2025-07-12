@@ -48,3 +48,8 @@
 ## 1.0.9
 - fix the documentation
 - add an scale animation when widget is valid or not
+- add a new method to get the country code from the phone number
+- add test cases for phone validator widget
+- add test cases for phone validator controller
+- add numbers to test cases
+- improve the documentation
