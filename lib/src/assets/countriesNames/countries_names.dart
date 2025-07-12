@@ -10,6 +10,7 @@ import 'countries_names_ja.dart';
 import 'countries_names_ko.dart';
 import 'countries_names_pt.dart';
 import 'countries_names_ru.dart';
+import 'countries_names_ur.dart';
 import 'countries_names_zh.dart';
 
 String countryNames(String lang,String isoCode){
@@ -40,6 +41,8 @@ String countryNames(String lang,String isoCode){
       return _getName(countries_id, isoCode);
     case 'hi':
       return _getName(countries_hi, isoCode);
+    case 'ur':
+      return _getName(countries_ur, isoCode);
     default:
       return _getName(countries_en,isoCode);
   }

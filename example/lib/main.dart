@@ -36,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   ValueNotifier<PhoneValidator> phoneValidator = ValueNotifier(PhoneValidator(lang: 'en'));
   String selectedLanguage = 'en'; // Default language
-  final List<String> languages = ['ar','hi','id','it','ja','pt','en', 'es', 'fr','ko','de','ru']; // Add more languages as needed
+  final List<String> languages = ['ar','hi','id','it','ja','pt','en', 'es', 'fr','ko','de','ru', 'ur']; // Add more languages as needed
 
   @override
   Widget build(BuildContext context) {

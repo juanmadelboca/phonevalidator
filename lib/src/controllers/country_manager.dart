@@ -23,7 +23,6 @@ class CountryManager {
       List<Country> countries = jsonList.map((json) => Country.fromJson(json)).toList();
       return countries;
     } catch (e) {
-      print('Error loading countries: $e');
       // Return an empty list in case of error
       return [];
     }

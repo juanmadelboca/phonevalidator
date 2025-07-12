@@ -52,7 +52,45 @@ class PhoneValidator{
     RegExp regExp = RegExp(pattern);
     String fullNumber = "${_country!.visualText}${phoneNumber.replaceAll(RegExp(r'[^0-9]'), '')}";
     phone = fullNumber;
-    isValidPhoneNotifier.value = regExp.hasMatch(fullNumber);
+    String aux = fullNumber.substring(_country!.visualText.length);
+    bool containsAreaCode = checkAreaCode(_country!,aux);
+    if(containsAreaCode) {
+      isValidPhoneNotifier.value = regExp.hasMatch(fullNumber);
+    }else{
+      isValidPhoneNotifier.value = false;
+    }
+  }
+
+  Country? getCountryByPhone(List<Country> countries,String fullPhoneNumber){
+    String normalized = fullPhoneNumber.replaceAll(RegExp(r'[^\d+]'), '');
+    print(fullPhoneNumber);
+    countries.sort((a, b) => b.dialCode.length.compareTo(a.dialCode.length));
+    for (final country in countries) {
+      if (normalized.startsWith(country.dialCode)) {
+        bool containsAreaCode = false;
+        String aux = normalized.substring(country.dialCode.length);
+        containsAreaCode = checkAreaCode(country,aux);
+        if(containsAreaCode) {
+          return country;
+        }
+      }
+    }
+    return null;
+  }
+
+  bool checkAreaCode(Country country,String fullNumber){
+    bool containsAreaCode = false;
+    if(country.areaCodes.isNotEmpty){
+      for (final areaCode in country.areaCodes) {
+        if (fullNumber.startsWith(areaCode.toString())) {
+          containsAreaCode = true;
+          break;
+        }
+      }
+    }else{
+      containsAreaCode = true;
+    }
+    return containsAreaCode;
   }
 
 }
