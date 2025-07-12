@@ -16,6 +16,8 @@ class Country{
   final String mask;
   /// The emoji flag representing the country.
   final String emoji;
+  /// A list of area codes for the country.
+  final List<int> areaCodes;
 
   /// Creates a [Country] object.
   /// All parameters are required.
@@ -27,6 +29,7 @@ class Country{
     required this.pattern,
     required this.mask,
     required this.emoji,
+    required this.areaCodes,
   });
 
   /// Creates a [Country] object from a JSON map.
@@ -40,6 +43,9 @@ class Country{
       pattern: json['pattern'] as String? ?? r'^\d+$',
       mask: json['mask'] as String? ?? '',
       emoji: json['emoji'] as String? ?? '',
+      areaCodes: (json['areaCodes'] as List<dynamic>?)
+              ?.map((e) => e as int)
+              .toList() ?? <int>[],
     );
   }
 
@@ -53,6 +59,7 @@ class Country{
       'pattern': pattern,
       'mask': mask,
       'emoji': emoji,
+      'areaCodes': areaCodes,
     };
   }
 

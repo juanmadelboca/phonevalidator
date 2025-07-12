@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 
 import '../../cellphone_validator.dart';
@@ -53,6 +55,32 @@ class PhoneValidator{
     String fullNumber = "${_country!.visualText}${phoneNumber.replaceAll(RegExp(r'[^0-9]'), '')}";
     phone = fullNumber;
     isValidPhoneNotifier.value = regExp.hasMatch(fullNumber);
+  }
+
+  Country? getCountryByPhone(List<Country> countries,String fullPhoneNumber){
+    String normalized = fullPhoneNumber.replaceAll(RegExp(r'[^\d+]'), '');
+    print(fullPhoneNumber);
+    countries.sort((a, b) => b.dialCode.length.compareTo(a.dialCode.length));
+    for (final country in countries) {
+      if (normalized.startsWith(country.dialCode)) {
+        bool containsAreaCode = false;
+        String aux = normalized.substring(country.dialCode.length);
+        if(country.areaCodes.isNotEmpty){
+          for (final areaCode in country.areaCodes) {
+            if (aux.startsWith(areaCode.toString())) {
+              containsAreaCode = true;
+              break;
+            }
+          }
+        }else{
+          containsAreaCode = true;
+        }
+        if(containsAreaCode) {
+          return country;
+        }
+      }
+    }
+    return null;
   }
 
 }

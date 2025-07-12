@@ -20,6 +20,10 @@ List<Map<String, dynamic>> countries_tr = [
     "isoCode": "AO",
   },
   {
+    "countryName": "Anguilla",
+    "isoCode": "AI"
+  },
+  {
     "countryName": "Antigua ve Barbuda",
     "isoCode": "AG",
   },

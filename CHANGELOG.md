@@ -44,3 +44,7 @@
 
 ## 1.0.8
 - import bugs fixed
+
+## 1.0.9
+- fix the documentation
+- add an scale animation when widget is valid or not
