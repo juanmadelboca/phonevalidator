@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 
 import '../../../cellphone_validator.dart';
 import '../../assets/countriesNames/countries_names.dart';
+import '../../controllers/phone_validator.dart';
 import '../../utils/masked_text_input_formatter.dart';
 import '../../utils/textFieldUtils.dart';
-
 
 /// [PhoneValidatorWidget] is a StatefulWidget that provides a UI for phone number validation.
 ///
@@ -13,21 +13,23 @@ import '../../utils/textFieldUtils.dart';
 /// The widget utilizes [PhoneValidator] to handle the validation logic and
 /// [CountryManager] to manage country-specific information.
 @immutable
-class PhoneValidatorWidget extends StatefulWidget {
+class PhoneView extends StatefulWidget {
   final PhoneValidator phoneValidator;
-  PhoneValidatorWidget({super.key, required this.phoneValidator});
+  final String fullPhoneNumber;
+  PhoneView({super.key, required this.phoneValidator, required this.fullPhoneNumber});
+  ValueNotifier<Country?> _country = ValueNotifier<Country?>(null);
 
   @override
-  State<PhoneValidatorWidget> createState() => _PhoneValidatorWidget();
+  State<PhoneView> createState() => _PhoneTextView();
 }
 
 /// [_PhoneValidatorWidget] is the state class for [PhoneValidatorWidget].
 ///
 /// It manages the state of the widget, including loading status, country list, and input controllers.
-class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
-  bool _loading = true;
+class _PhoneTextView extends State<PhoneView> {
+  bool _loading = false;
   TextEditingController _phoneEditingController = TextEditingController();
-  List<Country> _countries = CellPhoneValidator.countries;
+  List<Country> countries = CellPhoneValidator.countries;
 
   @override
   void initState() {
@@ -41,8 +43,9 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
   /// This method sets the language in [CountryManager], retrieves the list of countries,
   /// and updates the loading state. It also selects the first country by default if available.
   Future<void> loadLanguage() async {
+
     _loading = false;
-    chooseCountry(_countries.first);
+
   }
 
   /// Called when the widget configuration changes.
@@ -51,10 +54,10 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
   /// clears the phone input field, and resets the phone validation status.
   /// - [oldWidget]: The old widget configuration.
   @override
-  void didUpdateWidget(covariant PhoneValidatorWidget oldWidget) {
+  void didUpdateWidget(covariant PhoneView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.phoneValidator.lang != oldWidget.phoneValidator.lang) {
-      _loading = true;
+      _loading = false;
       _phoneEditingController.clear();
       widget.phoneValidator.checkPhone('');
       loadLanguage();
@@ -68,35 +71,20 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
   /// - [context]: The build context.
   @override
   Widget build(BuildContext context) {
-    if (_loading) {
-      return const Padding(
-          padding: EdgeInsets.all(10),
-          child: Center(
-            child: CircularProgressIndicator(),
-          ));
-    }
     return Padding(
         padding: const EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Flexible(
-                flex: 2,
-                child: SizedBox(
-                    height: 50,
-                    child: getCountryDropdown())),
+        child:
             ValueListenableBuilder<bool>(
                 valueListenable: widget.phoneValidator.isValidPhoneNotifier,
                 builder: (context, isValid, _) {
-                  return Flexible(
-                      flex: 4,
-                      child: Padding(
+                  Country? country = widget.phoneValidator.country ?? widget.phoneValidator.getCountryByPhone(countries,widget.fullPhoneNumber.replaceAll('+',''));
+                  _phoneEditingController.text = widget.fullPhoneNumber.replaceFirst(country!.dialCode, '');
+                  return  Padding(
                           padding:
-                             const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-                          child: phoneTextField(isValid,widget.phoneValidator)));
+                          const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                          child: phoneTextField(isValid,country));
                 })
-          ],
-        ));
+        );
   }
 
   /// Handles the selection of a country from the dropdown.
@@ -114,11 +102,11 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
   ///
   /// Returns a list of [TextInputFormatter] including [MaskedTextInputFormatter] if a country is selected.
 
-  List<TextInputFormatter> getInputFormater() {
-    return widget.phoneValidator.country != null
+  List<TextInputFormatter> getInputFormater(Country? country) {
+    return country != null
         ? [
-            MaskedTextInputFormatter(mask: widget.phoneValidator.country!.mask),
-          ]
+      MaskedTextInputFormatter(mask:country.mask),
+    ]
         : [];
   }
 
@@ -143,35 +131,21 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
 
 
 
-  DropdownButton<Country> getCountryDropdown() {
-   return DropdownButton<Country>(
-      value: widget.phoneValidator.country,
-      onChanged: (Country? newValue) async {
-        chooseCountry(newValue!);
-      },
-      items: _countries.map((Country country) {
-        return DropdownMenuItem<Country>(
-          value: country,
-          child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Text(country.getDefaultView())),
-        );
-      }).toList(),
-    );
-  }
 
-  TextField phoneTextField(bool isValid,PhoneValidator phoneValidator){
-   return TextField(
+
+  TextField phoneTextField(bool isValid,Country? country) {
+    return TextField(
+      enabled: true,
+      readOnly: true,
       decoration: InputDecoration(
-        hintText: getPhovalidatorText(phoneValidator.country, 'mask',phoneValidator.lang),
-        labelText: getPhovalidatorText(phoneValidator.country, 'countryName', phoneValidator.lang),
-        prefix: Text(getPhovalidatorText(phoneValidator.country, 'visualText',phoneValidator.lang)),
-        suffix: _isValidNumber(isValid),
+        labelText: getPhovalidatorText(country, 'label', widget.phoneValidator.lang),
+        prefixText: getPhovalidatorText(country, 'visualText', widget.phoneValidator.lang),
       ),
       keyboardType: TextInputType.phone,
       controller: _phoneEditingController,
-      inputFormatters: getInputFormater(),
-      onChanged: insertNumber,);
+      inputFormatters: getInputFormater(country),
+
+      );
   }
 
 

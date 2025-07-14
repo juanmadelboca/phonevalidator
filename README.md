@@ -21,7 +21,7 @@ To start using the package, add the `cellphone_validator` dependency to your `pu
 dependencies:
   flutter:
     sdk: flutter
-  cellphone_validator: ^1.0.3 # Replace with the latest version
+  cellphone_validator: ^1.0.10 # Replace with the latest version
 ```
 
 Then, run `flutter pub get` in your terminal to install the package.
@@ -30,10 +30,18 @@ Then, run `flutter pub get` in your terminal to install the package.
 
 Here is a practical example of how to implement the `PhoneValidatorWidget`.
 
-### 1. Import the Package
+### 1. Import the class 
 ```dart
-import 'package:cellphone_validator/src/view/phone_view/phone_validator_widget.dart';
-import 'package:cellphone_validator/src/controllers/phone_validator.dart';
+import 'package:cellphone_validator/src/view/phone_view/phone_validator_widget.dart'; //Validator Widget
+import 'package:cellphone_validator/src/controllers/phone_validator.dart'; //Controller
+```
+
+put in void main the following lines:
+```dart
+void main(){
+  CallphoneValidator.init(); //initalize and load the countries
+  runApp(const MyApp());
+}
 ```
 
 ### 2. Create a PhoneValidator Controller
@@ -115,8 +123,8 @@ Widget build(BuildContext context) {
   );
 }
 ```
-
-## Testing Numbers
+<details>
+<summary> ## Testing Numbers</summary>
 
 | Country Code | Phone Number | Expected Validation | Country   |
 |--------------|--------------|---------------------|-----------|
@@ -161,7 +169,7 @@ Widget build(BuildContext context) {
 | +267         | 71234567     | Valid               | Botswana  |
 | +226         | 61234567     | Valid               | Burkina Faso |
 
-
+</details>
 
 
 
@@ -170,3 +178,8 @@ Widget build(BuildContext context) {
 *   **Found a Bug or Have a Feature Request?** Please file an issue on our [GitHub repository](https://github.com/DecksPlayer/phonevalidator/issues).
 *   **Want to Contribute?** We welcome pull requests! Feel free to fork the repository and submit your changes.
 *   **License**: This package is licensed under the Apache 2.0 License. See the `LICENSE` file for more details.
+
+## Help this project
+If you find this package helpful and want to support its development, consider making a donation. Thank you for your support!
+
+[![Support via PayPal](https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png)](https://www.paypal.com/paypalme/gonojuarez)

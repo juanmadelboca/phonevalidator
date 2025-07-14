@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:cellphone_validator/src/view/phone_view/phone_validator_widget.dart';
 import 'package:cellphone_validator/src/controllers/phone_validator.dart';
+import 'package:cellphone_validator/src/view/PhoneTextView/phoneView.dart';
+import 'package:cellphone_validator/src/models/country.dart';
+import 'package:cellphone_validator/src/controllers/country_manager.dart';
+import 'package:cellphone_validator/cellphone_validator.dart';
+import 'package:cellphone_validator/src/view/PhoneTextField/phoneTextField.dart';
+
 
 void main() {
+
+  CellPhoneValidator.init();
   runApp(const MyApp());
 }
 
@@ -37,9 +45,32 @@ class _MyHomePageState extends State<MyHomePage> {
   ValueNotifier<PhoneValidator> phoneValidator = ValueNotifier(PhoneValidator(lang: 'en'));
   String selectedLanguage = 'en'; // Default language
   final List<String> languages = ['ar','hi','id','it','ja','pt','en', 'es', 'fr','ko','de','ru', 'ur']; // Add more languages as needed
+  List<Country> countries = [];
+
+  PhoneValidator phoneValidatorEn = PhoneValidator(lang: 'en');
+  PhoneValidator phoneValidatorEs = PhoneValidator(lang: 'es');
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  loadCountries() async {
+    CountryManager countryManager = CountryManager();
+    countries = await countryManager.getCountries();
+    setState(() {
+
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
+    if(countries.isEmpty){
+      loadCountries();
+    }
     return ListenableBuilder(listenable: phoneValidator, builder: (context,_)=>
         Scaffold(
       appBar: AppBar(
@@ -60,10 +91,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 listenable: phoneValidator!.value.isValidPhoneNotifier,
                 builder: (context, _) {
                   return phoneValidator!.value.isValidPhoneNotifier.value
-                      ? Text(phoneValidator!.value.phone)
+                      ? PhoneView(
+                          phoneValidator: phoneValidator.value!,
+                          fullPhoneNumber: phoneValidator.value!.phone.replaceAll('+', ''),)
                       : Text('Invalid phone');
-                })
+                }),
+            PhoneView(
+              phoneValidator: phoneValidatorEs,
+              fullPhoneNumber: '34612345678',),
+            PhoneTextField(phoneValidator: phoneValidatorEn, fullPhoneNumber: '',)
           ],
+
         ),
       ),
     ));

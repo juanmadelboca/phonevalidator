@@ -61,9 +61,26 @@ class PhoneValidator{
     }
   }
 
+  void checkPhoneByCountry(String phoneNumber,Country? country){
+    if(country == null) {
+      isValidPhoneNotifier.value = false;
+      return;
+    }
+    String pattern = country.pattern;
+    RegExp regExp = RegExp(pattern);
+    String fullNumber = "${country!.visualText}${phoneNumber.replaceAll(RegExp(r'[^0-9]'), '')}";
+    phone = fullNumber;
+    String aux = fullNumber.substring(country!.visualText.length);
+    bool containsAreaCode = checkAreaCode(country!,aux);
+    if(containsAreaCode) {
+      isValidPhoneNotifier.value = regExp.hasMatch(fullNumber);
+    }else{
+      isValidPhoneNotifier.value = false;
+    }
+  }
+
   Country? getCountryByPhone(List<Country> countries,String fullPhoneNumber){
     String normalized = fullPhoneNumber.replaceAll(RegExp(r'[^\d+]'), '');
-    print(fullPhoneNumber);
     countries.sort((a, b) => b.dialCode.length.compareTo(a.dialCode.length));
     for (final country in countries) {
       if (normalized.startsWith(country.dialCode)) {
