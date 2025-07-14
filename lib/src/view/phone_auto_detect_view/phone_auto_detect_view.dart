@@ -1,71 +1,53 @@
+import 'package:cellphone_validator/src/utils/widgets/check_animation/check_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../cellphone_validator.dart';
-import '../../assets/countriesNames/countries_names.dart';
-import '../../controllers/phone_validator.dart';
 import '../../utils/masked_text_input_formatter.dart';
 import '../../utils/textFieldUtils.dart';
 
-/// [PhoneValidatorWidget] is a StatefulWidget that provides a UI for phone number validation.
+/// A StatefulWidget that provides a UI for phone number input and validation.
 ///
 /// It includes a dropdown for country selection and a text field for phone number input.
 /// The widget utilizes [PhoneValidator] to handle the validation logic and
 /// [CountryManager] to manage country-specific information.
 @immutable
-class PhoneTextField extends StatefulWidget {
+class PhoneAutoDetectView extends StatefulWidget {
+  /// The [PhoneValidator] instance used for validating phone numbers.
   final PhoneValidator phoneValidator;
+
+  /// The initial full phone number to be displayed and validated.
+  /// This can include the country code.
   final String fullPhoneNumber;
-  PhoneTextField({super.key, required this.phoneValidator, required this.fullPhoneNumber});
+
+  /// Creates a [PhoneTextField] widget.
+  ///
+  /// Requires a [phoneValidator] for validation logic and a [fullPhoneNumber] as the initial value.
+  PhoneAutoDetectView({super.key, required this.phoneValidator, required this.fullPhoneNumber});
 
   @override
-  State<PhoneTextField> createState() => _PhoneTextFieldView();
+  State<PhoneAutoDetectView> createState() => _PhoneAutoDetectView();
 }
 
 /// [_PhoneValidatorWidget] is the state class for [PhoneValidatorWidget].
 ///
 /// It manages the state of the widget, including loading status, country list, and input controllers.
-class _PhoneTextFieldView extends State<PhoneTextField> {
-  bool _loading = false;
+class _PhoneAutoDetectView extends State<PhoneAutoDetectView> {
   TextEditingController _phoneEditingController = TextEditingController();
   List<Country> countries = CellPhoneValidator.countries;
 
   ValueNotifier<Country?> _country = ValueNotifier<Country?>(null);
+
+  CheckAnimation? checkAnimation;
 
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    loadLanguage();
   }
 
-  /// Loads language-specific country data.
-  ///
-  /// This method sets the language in [CountryManager], retrieves the list of countries,
-  /// and updates the loading state. It also selects the first country by default if available.
-  Future<void> loadLanguage() async {
-
-    _loading = false;
-
-  }
-
-  /// Called when the widget configuration changes.
-  ///
-  /// If the language in [PhoneValidator] changes, it reloads the language data,
-  /// clears the phone input field, and resets the phone validation status.
-  /// - [oldWidget]: The old widget configuration.
-  @override
-  void didUpdateWidget(covariant PhoneTextField oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.phoneValidator.lang != oldWidget.phoneValidator.lang) {
-      _loading = false;
-      _phoneEditingController.clear();
-      widget.phoneValidator.checkPhone('');
-      loadLanguage();
-    }
-  }
-
+  
   /// Builds the widget tree for the phone validator.
   ///
   /// It displays a loading indicator while data is being fetched, otherwise,
@@ -73,13 +55,7 @@ class _PhoneTextFieldView extends State<PhoneTextField> {
   /// - [context]: The build context.
   @override
   Widget build(BuildContext context) {
-    if (_loading) {
-      return const Padding(
-          padding: EdgeInsets.all(10),
-          child: Center(
-            child: CircularProgressIndicator(),
-          ));
-    }
+    checkAnimation ??= CheckAnimation(isValidPhoneNotifier: widget.phoneValidator.isValidPhoneNotifier);
     return Padding(
         padding: const EdgeInsets.all(10),
         child:
@@ -108,24 +84,7 @@ class _PhoneTextFieldView extends State<PhoneTextField> {
         : [];
   }
 
-  Widget _isValidNumber(){
-    return ValueListenableBuilder(valueListenable: widget.phoneValidator.isValidPhoneNotifier, builder: (context,isValid,_){
-     return AnimatedSwitcher(
-        duration: const Duration(milliseconds: 500),
-        transitionBuilder: (child, animation) {
-          return ScaleTransition(
-            scale: animation,
-            child: child,
-          );
-        },
-        child: isValid
-            ? const Icon(
-          key: Key('0'), Icons.check_circle_outline, color: Colors.green,)
-            : const Icon(
-            key: Key('1'), Icons.cancel_outlined, color: Colors.red),
-      );
-    } );
-  }
+ 
 
   void insertNumber(String text){
     if(_country.value==null||text.isEmpty) {
@@ -142,10 +101,7 @@ class _PhoneTextFieldView extends State<PhoneTextField> {
       widget.phoneValidator.checkPhoneByCountry(_phoneEditingController.text, _country.value);
     }
   }
-
-
-
-
+  
   Widget phoneTextField(bool isValid,Country? country) {
     return ValueListenableBuilder(valueListenable: _country, builder:(context,country,_){
       return TextField(
@@ -153,12 +109,12 @@ class _PhoneTextFieldView extends State<PhoneTextField> {
         enabled: true,
         selectionControls: null,
         decoration:country!=null?InputDecoration(
-          suffix: _isValidNumber(),
+          suffix: checkAnimation,
           labelText: getPhovalidatorText(country, 'label', widget.phoneValidator.lang),
           prefixText: getPhovalidatorText(country, 'visualText', widget.phoneValidator.lang),
         ):InputDecoration(
             hintText: '## ### ###-####',
-          suffix:   _isValidNumber()
+          suffix:   checkAnimation
         ),
         keyboardType: TextInputType.phone,
         controller: _phoneEditingController,
@@ -167,8 +123,5 @@ class _PhoneTextFieldView extends State<PhoneTextField> {
       );
     });
   }
-
-
-
-
+  
 }

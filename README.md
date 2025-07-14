@@ -26,9 +26,15 @@ dependencies:
 
 Then, run `flutter pub get` in your terminal to install the package.
 
-## Usage
+## How to use
 
-Here is a practical example of how to implement the `PhoneValidatorWidget`.
+
+
+| Widget |Description |
+|--------|------------|
+| PhoneSummaryView |     A read-only widget that displays a fully formatted phone number, including the country code. Useful for showing validated numbers in a summary or review screen.       | 
+| PhoneInputSelectorView |   An interactive widget that allows users to select a country from a dropdown and enter a phone number. Includes input formatting and real-time validation based on the selected country's phone rules.      | 
+| PhoneAutoDetectView | An intelligent phone input widget that automatically detects the country based on the dial code entered. It formats the number accordingly and provides real-time validation feedback.|
 
 ### 1. Import the class 
 ```dart
@@ -124,7 +130,7 @@ Widget build(BuildContext context) {
 }
 ```
 <details>
-<summary> ## Testing Numbers</summary>
+<summary>Testing Numbers</summary>
 
 | Country Code | Phone Number | Expected Validation | Country   |
 |--------------|--------------|---------------------|-----------|

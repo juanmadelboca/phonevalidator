@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../cellphone_validator.dart';
-import '../../assets/countriesNames/countries_names.dart';
-import '../../controllers/phone_validator.dart';
 import '../../utils/masked_text_input_formatter.dart';
 import '../../utils/textFieldUtils.dart';
 
@@ -13,20 +11,20 @@ import '../../utils/textFieldUtils.dart';
 /// The widget utilizes [PhoneValidator] to handle the validation logic and
 /// [CountryManager] to manage country-specific information.
 @immutable
-class PhoneView extends StatefulWidget {
+class PhoneSummaryView extends StatefulWidget {
   final PhoneValidator phoneValidator;
   final String fullPhoneNumber;
-  PhoneView({super.key, required this.phoneValidator, required this.fullPhoneNumber});
+  PhoneSummaryView({super.key, required this.phoneValidator, required this.fullPhoneNumber});
   ValueNotifier<Country?> _country = ValueNotifier<Country?>(null);
 
   @override
-  State<PhoneView> createState() => _PhoneTextView();
+  State<PhoneSummaryView> createState() => _PhoneSummaryView();
 }
 
 /// [_PhoneValidatorWidget] is the state class for [PhoneValidatorWidget].
 ///
 /// It manages the state of the widget, including loading status, country list, and input controllers.
-class _PhoneTextView extends State<PhoneView> {
+class _PhoneSummaryView extends State<PhoneSummaryView> {
   bool _loading = false;
   TextEditingController _phoneEditingController = TextEditingController();
   List<Country> countries = CellPhoneValidator.countries;
@@ -54,7 +52,7 @@ class _PhoneTextView extends State<PhoneView> {
   /// clears the phone input field, and resets the phone validation status.
   /// - [oldWidget]: The old widget configuration.
   @override
-  void didUpdateWidget(covariant PhoneView oldWidget) {
+  void didUpdateWidget(covariant PhoneSummaryView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.phoneValidator.lang != oldWidget.phoneValidator.lang) {
       _loading = false;

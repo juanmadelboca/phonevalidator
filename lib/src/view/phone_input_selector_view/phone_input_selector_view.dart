@@ -7,24 +7,24 @@ import '../../utils/masked_text_input_formatter.dart';
 import '../../utils/textFieldUtils.dart';
 
 
-/// [PhoneValidatorWidget] is a StatefulWidget that provides a UI for phone number validation.
+/// [PhoneInputSelectorView] is a StatefulWidget that provides a UI for phone number validation.
 ///
 /// It includes a dropdown for country selection and a text field for phone number input.
 /// The widget utilizes [PhoneValidator] to handle the validation logic and
 /// [CountryManager] to manage country-specific information.
 @immutable
-class PhoneValidatorWidget extends StatefulWidget {
+class PhoneInputSelectorView extends StatefulWidget {
   final PhoneValidator phoneValidator;
-  PhoneValidatorWidget({super.key, required this.phoneValidator});
+  PhoneInputSelectorView({super.key, required this.phoneValidator});
 
   @override
-  State<PhoneValidatorWidget> createState() => _PhoneValidatorWidget();
+  State<PhoneInputSelectorView> createState() => _PhoneInputSelectorView();
 }
 
 /// [_PhoneValidatorWidget] is the state class for [PhoneValidatorWidget].
 ///
 /// It manages the state of the widget, including loading status, country list, and input controllers.
-class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
+class _PhoneInputSelectorView extends State<PhoneInputSelectorView> {
   bool _loading = true;
   TextEditingController _phoneEditingController = TextEditingController();
   List<Country> _countries = CellPhoneValidator.countries;
@@ -51,7 +51,7 @@ class _PhoneValidatorWidget extends State<PhoneValidatorWidget> {
   /// clears the phone input field, and resets the phone validation status.
   /// - [oldWidget]: The old widget configuration.
   @override
-  void didUpdateWidget(covariant PhoneValidatorWidget oldWidget) {
+  void didUpdateWidget(covariant PhoneInputSelectorView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.phoneValidator.lang != oldWidget.phoneValidator.lang) {
       _loading = true;

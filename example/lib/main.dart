@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cellphone_validator/src/view/phone_view/phone_validator_widget.dart';
-import 'package:cellphone_validator/src/controllers/phone_validator.dart';
-import 'package:cellphone_validator/src/view/PhoneTextView/phoneView.dart';
-import 'package:cellphone_validator/src/models/country.dart';
-import 'package:cellphone_validator/src/controllers/country_manager.dart';
 import 'package:cellphone_validator/cellphone_validator.dart';
-import 'package:cellphone_validator/src/view/PhoneTextField/phoneTextField.dart';
-
 
 void main() {
 
@@ -86,20 +79,20 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             FractionallySizedBox(
                 widthFactor: 0.7,
-                child: PhoneValidatorWidget(phoneValidator: phoneValidator.value!)),
+                child: PhoneInputSelectorView(phoneValidator: phoneValidator.value!)),
             ListenableBuilder(
                 listenable: phoneValidator!.value.isValidPhoneNotifier,
                 builder: (context, _) {
                   return phoneValidator!.value.isValidPhoneNotifier.value
-                      ? PhoneView(
+                      ? PhoneSummaryView(
                           phoneValidator: phoneValidator.value!,
                           fullPhoneNumber: phoneValidator.value!.phone.replaceAll('+', ''),)
                       : Text('Invalid phone');
                 }),
-            PhoneView(
+            PhoneSummaryView(
               phoneValidator: phoneValidatorEs,
               fullPhoneNumber: '34612345678',),
-            PhoneTextField(phoneValidator: phoneValidatorEn, fullPhoneNumber: '',)
+            PhoneAutoDetectView(phoneValidator: phoneValidatorEn, fullPhoneNumber: '',)
           ],
 
         ),
