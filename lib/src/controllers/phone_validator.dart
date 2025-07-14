@@ -68,10 +68,10 @@ class PhoneValidator{
     }
     String pattern = country.pattern;
     RegExp regExp = RegExp(pattern);
-    String fullNumber = "${country!.visualText}${phoneNumber.replaceAll(RegExp(r'[^0-9]'), '')}";
+    String fullNumber = "${country.visualText}${phoneNumber.replaceAll(RegExp(r'[^0-9]'), '')}";
     phone = fullNumber;
-    String aux = fullNumber.substring(country!.visualText.length);
-    bool containsAreaCode = checkAreaCode(country!,aux);
+    String aux = fullNumber.substring(country.visualText.length);
+    bool containsAreaCode = checkAreaCode(country,aux);
     if(containsAreaCode) {
       isValidPhoneNotifier.value = regExp.hasMatch(fullNumber);
     }else{

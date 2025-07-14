@@ -15,7 +15,6 @@ class PhoneSummaryView extends StatefulWidget {
   final PhoneValidator phoneValidator;
   final String fullPhoneNumber;
   PhoneSummaryView({super.key, required this.phoneValidator, required this.fullPhoneNumber});
-  ValueNotifier<Country?> _country = ValueNotifier<Country?>(null);
 
   @override
   State<PhoneSummaryView> createState() => _PhoneSummaryView();

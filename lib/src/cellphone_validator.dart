@@ -5,8 +5,6 @@ abstract class CellphoneValidator{
   Future<void> init()async{
   }
 
-  void _loadCountries()  async {
-  }
   List<Country> get countries => _countries;
 }
 
@@ -14,7 +12,6 @@ class CellphoneValidatorImpl implements CellphoneValidator{
   @override
   List<Country> _countries=[];
 
-  @override
   void _loadCountries() async{
     _countries = await CountryManager().getCountries();
   }
