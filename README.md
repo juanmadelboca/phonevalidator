@@ -99,7 +99,7 @@ ValueNotifier<PhoneValidator> phoneValidator = ValueNotifier(PhoneValidator(lang
    Use the package’s widgets like PhoneInputSelectorView, PhoneSummaryView, and PhoneAutoDetectView to build your UI. For example:
 ```dart
 
-PhoneInputSelectorView(@phoneValidator: phoneValidator.value),
+PhoneInputSelectorView(phoneValidator: phoneValidator.value),
 ListenableBuilder(
   listenable: phoneValidator.value.isValidPhoneNotifier,
   builder: (context, _) {
