@@ -21,102 +21,128 @@ To start using the package, add the `cellphone_validator` dependency to your `pu
 dependencies:
   flutter:
     sdk: flutter
-  cellphone_validator: ^1.0.3 # Replace with the latest version
+  cellphone_validator: ^<latest-version> # Replace with the latest version
 ```
 
 Then, run `flutter pub get` in your terminal to install the package.
 
-## Usage
+## Features 
 
-Here is a practical example of how to implement the `PhoneValidatorWidget`.
+## 🌐 Supported Languages
+ar, de, en, es, fr, hi, id, it, ja, ko, pt, ru, ur — and more coming soon.
 
-### 1. Import the Package
+## 🧩 Widgets
+
+
+| Widget |Description |
+|--------|------------|
+| PhoneSummaryView |     A read-only widget that displays a fully formatted phone number, including the country code. Useful for showing validated numbers in a summary or review screen.       | 
+| PhoneInputSelectorView |   An interactive widget that allows users to select a country from a dropdown and enter a phone number. Includes input formatting and real-time validation based on the selected country's phone rules.      | 
+| PhoneAutoDetectView | An intelligent phone input widget that automatically detects the country based on the dial code entered. It formats the number accordingly and provides real-time validation feedback.|
+
+###  Export List
+
+| Export Path                                                                                     | Description                                                                                       |
+|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| `package:cellphone_validator/cellphone_validator.dart`                                          | Main package entry point. Re-exports all core classes, models, and widgets for easy access.       |
+| `package:cellphone_validator/src/controllers/country_manager.dart`                              | Provides logic for managing and retrieving supported countries.                                   |
+| `package:cellphone_validator/src/models/country.dart`                                           | Defines the `Country` model, which includes dial codes, masks, and display data.                  |
+| `package:cellphone_validator/src/controllers/phone_validator.dart`                              | Core validator logic that checks if phone numbers are valid according to country-specific rules.  |
+| `package:cellphone_validator/src/view/phone_auto_detect_view/phone_auto_detect_view.dart`       | Widget that auto-detects the country from the phone number and validates it.                      |
+| `package:cellphone_validator/src/view/phone_input_selector_view/phone_input_selector_view.dart` | Widget that allows manual country selection and phone input with validation.                      |
+| `package:cellphone_validator/src/view/phone_text_view/phone_summary_view.dart`                  | Read-only widget that displays a previously validated phone number with formatting.               |
+
+## How to Use
+
+### Initialize
+
+- import the main package:
+  - ```dart
+    import 'package:cellphone_validator/cellphone_validator.dart';
+    ```
+- Initialize the validator *before running your app:*
+    ```dart
+    void main(){
+      CallphoneValidator.init(); //initalize and load the countries
+      runApp(const MyApp());
+    }
+    ```
+### 2. Set Up Your App Widget
+   Create your main app widget as usual:
 ```dart
-import 'package:cellphone_validator/src/view/phone_view/phone_validator_widget.dart';
-import 'package:cellphone_validator/src/controllers/phone_validator.dart';
-```
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-### 2. Create a PhoneValidator Controller
-
-First, create a `ValueNotifier` in your `State` to hold the `PhoneValidator` instance. This will manage the state of the phone input.
-
-```dart
-class _MyHomePageState extends State<MyHomePage> {
-  // The controller that manages the widget's state.
-  // You can specify a default language.
-  final ValueNotifier<PhoneValidator> phoneValidator =
-      ValueNotifier(PhoneValidator(lang: 'en'));
-
-  // ... rest of your state
-}
-```
-
-### 3. Add the Widget to your UI
-
-Place the `PhoneValidatorWidget` in your widget tree and pass it the controller you just created.
-
-```dart
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(title: Text("Phone Validator Example")),
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // The main widget for phone number input
-          PhoneValidatorWidget(
-            phoneValidator: phoneValidator.value,
-          ),
-        ],
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-    ),
-  );
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
 }
+
 ```
 
-### 4. Listen for Changes
+### 3. Create a PhoneValidator Controller in Your Stateful Widget
+
+Create a ValueNotifier<PhoneValidator> to manage phone validation and state.
+```dart
+ValueNotifier<PhoneValidator> phoneValidator = ValueNotifier(PhoneValidator(lang: 'en'));
+```
+### 4. Build the UI Using Provided Widgets
+
+   Use the package’s widgets like PhoneInputSelectorView, PhoneSummaryView, and PhoneAutoDetectView to build your UI. For example:
+```dart
+
+PhoneInputSelectorView(phoneValidator: phoneValidator.value),
+ListenableBuilder(
+  listenable: phoneValidator.value.isValidPhoneNotifier,
+  builder: (context, _) {
+  return phoneValidator.value.isValidPhoneNotifier.value
+    ? PhoneSummaryView(phoneValidator: phoneValidator.value,
+      fullPhoneNumber: phoneValidator.value.phone.replaceAll('+', ''),
+    )
+    : const Text('Invalid phone');
+  },
+),
+PhoneAutoDetectView(phoneValidator: phoneValidator.value, fullPhoneNumber: ''),
+```
+
+### 5. Add a Language Dropdown to Switch Validation Language Dynamically
+
 
 You can listen to the `isValidPhoneNotifier` within the controller to react to changes in the phone number's validity in real-time.
 
 ```dart
-@override
-Widget build(BuildContext context) {
-  return Scaffold(
-    // ... your AppBar
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          PhoneValidatorWidget(
-            phoneValidator: phoneValidator.value,
-          ),
-          SizedBox(height: 20),
-          // Listen to the notifier to show validation results
-          ListenableBuilder(
-            listenable: phoneValidator.value.isValidPhoneNotifier,
-            builder: (context, _) {
-              final isValid = phoneValidator.value.isValidPhoneNotifier.value;
-              final phoneNumber = phoneValidator.value.phone;
-              
-              if (!isValid) {
-                return Text('Invalid phone', style: TextStyle(color: Colors.red));
-              }
-              
-              return Text(
-                'Valid Phone: $phoneNumber',
-                style: TextStyle(color: Colors.green),
-              );
-            },
-          ),
-        ],
-      ),
-    ),
+DropdownButton<String>(
+  value: phoneValidator.value.lang,
+  icon: const Icon(Icons.language),
+  onChanged: (String? newValue) {
+  phoneValidator.value = PhoneValidator(lang: newValue!);
+},
+  items: ['ar','hi','id','it','ja','pt','en', 'es', 'fr','ko','de','ru', 'ur'].map<DropdownMenuItem<String>>((String value) {
+return DropdownMenuItem<String>(
+    value: value,
+    child: Text(value.toUpperCase()),
   );
-}
+}).toList(),
+);
+  
 ```
+### Summary
+- No need to load countries manually: The package handles it internally as a singleton.
+- Just initialize once with CellPhoneValidator.init().
+- Use the widgets with your PhoneValidator controller.
+- Switch languages on the fly using your language dropdown.
 
-## Testing Numbers
+
+<details>
+<summary>Testing Numbers</summary>
 
 | Country Code | Phone Number | Expected Validation | Country   |
 |--------------|--------------|---------------------|-----------|
@@ -161,7 +187,7 @@ Widget build(BuildContext context) {
 | +267         | 71234567     | Valid               | Botswana  |
 | +226         | 61234567     | Valid               | Burkina Faso |
 
-
+</details>
 
 
 
@@ -170,3 +196,8 @@ Widget build(BuildContext context) {
 *   **Found a Bug or Have a Feature Request?** Please file an issue on our [GitHub repository](https://github.com/DecksPlayer/phonevalidator/issues).
 *   **Want to Contribute?** We welcome pull requests! Feel free to fork the repository and submit your changes.
 *   **License**: This package is licensed under the Apache 2.0 License. See the `LICENSE` file for more details.
+
+## Help this project
+If you find this package helpful and want to support its development, consider making a donation. Thank you for your support!
+
+[![Support via PayPal](https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png)](https://www.paypal.com/paypalme/gonojuarez)

@@ -35,7 +35,9 @@ class CountryManager {
   /// Note: This returns the currently cached data.
   /// Call [initializeCountries]to update the cache.
 
-  List<Country> getCountries() {
+  Future<List<Country>> getCountries()async{
+    if(_cachedCountries.isEmpty)
+      _cachedCountries = await _loadCountries();
     return _cachedCountries; // Returns cached data; update it after loading
   }
 

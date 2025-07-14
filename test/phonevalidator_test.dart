@@ -1,53 +1,88 @@
+import 'package:cellphone_validator/src/cellphone_validator.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:cellphone_validator/cellphone_validator.dart';
 
-final List<String> testNumbers = [
-  '541123456789',    // Argentina
-  '12025550191',     // USA
-  '14165550123',     // Canada
-  '442079460958',    // UK
-  '4930123456',      // Germany
-  '33612345678',     // France
-  '34612345678',     // Spain
-  '5511912345678',   // Brazil
-  '525512345678',    // Mexico
-  '919123456789',    // India
-  '61412345678',     // Australia
-  '817012345678',    // Japan
-  '79123456789',     // Russia
-  '27821234567',     // South Africa
-  '393123456789',    // Italy
-  '8613812345678',   // China
-  '923001234567',    // Pakistan
-  '2348031234567',   // Nigeria
-  '8801712345678',   // Bangladesh
-  '201001234567',    // Egypt
-  '84912345678',     // Vietnam
-  '905123456789',    // Turkey
-  '6281234567890',   // Indonesia
-  '639171234567',    // Philippines
-  '66812345678',     // Thailand
-  '966501234567',    // Saudi Arabia
-  '989123456789',    // Iran
-  '60123456789',     // Malaysia
-  '31612345678',     // Netherlands
-  '48500123456',     // Poland
-  '40712345678',     // Romania
-  '380501234567',    // Ukraine
-  '56912345678',     // Chile
-  '5730012345678',   // Colombia
-  '51912345678',     // Peru
-  '584121234567',    // Venezuela
-  '213512345678',    // Algeria
-  '244912345678',    // Angola
-  '22961234567',     // Benin
-  '26771234567',     // Botswana
-  '22661234567',     // Burkina Faso
-
+final List<Map<String, dynamic>> testNumbers = [
+{'phone':'541123456789','isoCode':'AR','countryName':'Argentina','dialCode':'54'} ,  // Argentina
+{'phone':'12025550191','isoCode':'US','countryName':'United States','dialCode':'1'},     // USA
+{'phone':'14165550123','isoCode':'CA','countryName':'Canada','dialCode':'1'},    // Canada
+{'phone':'442079460958','isoCode':'GB','countryName':'United Kingdom','dialCode':'44'},    // UK
+{'phone':'4930123456','isoCode':'DE','countryName':'Germany','dialCode':'49'},// Germany
+{'phone':'33612345678','isoCode':'FR','countryName':'France','dialCode':'33'},// France
+{'phone':'34612345678','isoCode':'ES','countryName':'Spain','dialCode':'34'},// Spain
+{'phone':'5511912345678','isoCode':'BR','countryName':'Brazil','dialCode':'55'}, // Brazil
+{'phone':'525512345678','isoCode':'MX','countryName':'Mexico','dialCode':'52'}, // Mexico
+{'phone':'919123456789','isoCode':'IN','countryName':'India','dialCode':'91'},    // India
+{'phone':'61412345678','isoCode':'AU','countryName':'Australia','dialCode':'61'},// Australia
+{'phone':'817012345678','isoCode':'JP','countryName':'Japan','dialCode':'81'},   // Japan
+{'phone':'79123456789','isoCode':'RU','countryName':'Russia','dialCode':'7'},     // Russia
+{'phone':'27821234567','isoCode':'ZA','countryName':'South Africa','dialCode':'27'},     // South Africa
+{'phone':'393123456789','isoCode':'IT','countryName':'Italy','dialCode':'39'},    // Italy
+{'phone':'8613812345678','isoCode':'CN','countryName':'China','dialCode':'86'},   // China
+{'phone':'923001234567','isoCode':'PK','countryName':'Pakistan','dialCode':'92'},    // Pakistan
+{'phone':'2348031234567','isoCode':'NG','countryName':'Nigeria', 'dialCode':'234'},   // Nigeria
+{'phone':'8801712345678','isoCode':'BD','countryName':'Bangladesh','dialCode':'880'},   // Bangladesh
+{'phone':'201001234567','isoCode':'EG','countryName':'Egypt','dialCode':'20'},    // Egypt
+{'phone':'84912345678','isoCode':'VN','countryName':'Vietnam','dialCode':'84'},     // Vietnam
+{'phone':'905123456789','isoCode':'TR','countryName':'Turkey','dialCode':'90'},    // Turkey
+{'phone':'6281234567890','isoCode':'ID','countryName':'Indonesia','dialCode':'62'},   // Indonesia
+{'phone':'639171234567','isoCode':'PH','countryName':'Philippines','dialCode':'63'},    // Philippines
+{'phone':'66812345678','isoCode':'TH','countryName':'Thailand','dialCode':'66'},     // Thailand
+{'phone':'966501234567','isoCode':'SA','countryName':'Saudi Arabia','dialCode':'966'},    // Saudi Arabia
+{'phone':'989123456789','isoCode':'IR','countryName':'Iran','dialCode':'98'},    // Iran
+{'phone':'60123456789','isoCode':'MY','countryName':'Malaysia','dialCode':'60'},     // Malaysia
+{'phone':'31612345678','isoCode':'NL','countryName':'Netherlands','dialCode':'31'},     // Netherlands
+{'phone':'48500123456','isoCode':'PL','countryName':'Poland','dialCode':'48'},     // Poland
+{'phone':'40712345678','isoCode':'RO','countryName':'Romania','dialCode':'40'},     // Romania
+{'phone':'380501234567','isoCode':'UA','countryName':'Ukraine','dialCode':'380'},    // Ukraine
+{'phone':'56912345678','isoCode':'CL','countryName':'Chile','dialCode':'56'},     // Chile
+{'phone':'5730012345678','isoCode':'CO','countryName':'Colombia','dialCode':'57'},   // Colombia
+{'phone':'51912345678','isoCode':'PE','countryName':'Peru','dialCode':'51'},     // Peru
+{'phone':'584121234567','isoCode':'VE','countryName':'Venezuela','dialCode':'58'},    // Venezuela
+{'phone':'213512345678','isoCode':'DZ','countryName':'Algeria','dialCode':'213'},    // Algeria
+{'phone':'244912345678','isoCode':'AO','countryName':'Angola','dialCode':'244'},    // Angola
+{'phone':'355671234567','isoCode':'AL','countryName':'Albania','dialCode':'355'},    // Albania
+{'phone':'22961234567','isoCode':'BJ','countryName':'Benin','dialCode':'229'},     // Benin
+{'phone':'26771234567','isoCode':'BW','countryName':'Botswana','dialCode':'267'},     // Botswana
+{'phone':'22661234567','isoCode':'BF','countryName':'Burkina Faso','dialCode':'226'},     // Burkina Faso
+{'phone':'25761234567','isoCode':'BI','countryName':'Burundi','dialCode':'257'},    // Burundi
+{'phone':'2389123456','isoCode':'CV','countryName':'Cape Verde','dialCode':'238'},    // Cape Verde
+{'phone':'237612345678','isoCode':'CM','countryName':'Cameroon','dialCode':'237'},    // Cameroon
+{'phone':'23670123456','isoCode':'CF','countryName':'Central African Republic','dialCode':'236'}, // Central African Republic
+{'phone':'23560123456','isoCode':'TD','countryName':'Chad','dialCode':'235'},    // Chad
+{'phone':'2693123456','isoCode':'KM','countryName':'Comoros','dialCode':'269'},   // Comoros
+{'phone':'242051234567','isoCode':'CG','countryName':'Congo','dialCode':'242'},    // Congo - Brazzaville
+{'phone':'243812345678','isoCode':'CD','countryName':'Congo - Kinshasa','dialCode':'243'},   // Congo - Kinshasa
+{'phone':'25377123456','isoCode':'DJ','countryName':'Djibouti','dialCode':'253'},   // Djibouti
+{'phone':'240222123456','isoCode':'GQ','countryName':'Equatorial Guinea','dialCode':'240'}, // Equatorial Guinea
+{'phone':'2917123456','isoCode':'ER','countryName':'Eritrea','dialCode':'291'},   // Eritrea
+{'phone':'251912345678','isoCode':'ET','countryName':'Ethiopia','dialCode':'251'},    // Ethiopia
+{'phone':'24101234567','isoCode':'GA','countryName':'Gabon','dialCode':'241'},    // Gabon
+{'phone':'2207123456','isoCode':'GM','countryName':'Gambia','dialCode':'220'},    // Gambia
+{'phone':'233201234567','isoCode':'GH','countryName':'Ghana','dialCode':'233'},    // Ghana
+{'phone':'224620123456','isoCode':'GN','countryName':'Guinea','dialCode':'224'},    // Guinea
+{'phone':'245951234567','isoCode':'GW','countryName':'Guinea-Bissau','dialCode':'245'},   // Guinea-Bissau
+{'phone':'254712345678','isoCode':'KE','countryName':'Kenya','dialCode':'254'},    // Kenya
+{'phone':'26651234567','isoCode':'LS','countryName':'Lesotho','dialCode':'266'},    // Lesotho
+{'phone':'231771234567','isoCode':'LR','countryName':'Liberia','dialCode':'231'},    // Liberia
+{'phone':'218912345678','isoCode':'LY','countryName':'Libya','dialCode':'218'},    // Libya
+{'phone':'261321234567','isoCode':'MG','countryName':'Madagascar','dialCode':'261'},   // Madagascar
+{'phone':'265881234567','isoCode':'MW','countryName':'Malawi','dialCode':'265'},    // Malawi
+{'phone':'22370123456','isoCode':'ML','countryName':'Mali','dialCode':'223'},    // Mali
+{'phone':'22220123456','isoCode':'MR','countryName':'Mauritania','dialCode':'222'},   // Mauritania
+{'phone':'23051234567','isoCode':'MU','countryName':'Mauritius','dialCode':'230'},   // Mauritius
+{'phone':'212612345678','isoCode':'MA','countryName':'Morocco','dialCode':'212'},    // Morocco
+{'phone':'258821234567','isoCode':'MZ','countryName':'Mozambique','dialCode':'258'}    // Mozambique
 ];
 
 void main() {
+  late List<Country> countries =[];
+
+  setUpAll(()async{
+     await CellPhoneValidator.init();
+    countries = await CellPhoneValidator.countries;
+  });
   test('init phonesValidator', () {
     final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
     expect(phoneValidator.lang, 'en');
@@ -56,456 +91,15 @@ void main() {
     expect(phoneValidator.isValidPhoneNotifier.value, false);
   });
   test('country phonesValidator', ()async {
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    expect(countryManager.getCountries().length, 196);
+    expect(countries.length, 196);
   });
-  test('detect argentina phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[0]);
-    expect(country!.isoCode, 'AR');
-    expect(country.countryName, 'Argentina');
-    expect(country.dialCode, '54');
-  });
-  test('detect USA phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[1]);
-    expect(country!.isoCode, 'US');
-    expect(country.countryName, 'United States');
-    expect(country.dialCode, '1');
-  });
-
-  test('detect Canada phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[2]);
-    expect(country!.isoCode, 'CA');
-    expect(country.countryName, 'Canada');
-    expect(country.dialCode, '1');
-  });
-  test('detect UK phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[3]);
-    expect(country!.isoCode, 'GB');
-    expect(country.countryName, 'United Kingdom');
-    expect(country.dialCode, '44');
-  });
-  test('detect Germany phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[4]);
-    expect(country!.isoCode, 'DE');
-    expect(country.countryName, 'Germany');
-    expect(country.dialCode, '49');
-  });
-
-  test('detect France phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[5]);
-    expect(country!.isoCode, 'FR');
-    expect(country.countryName, 'France');
-    expect(country.dialCode, '33');
-  });
-
-  test('detect Spain phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[6]);
-    expect(country!.isoCode, 'ES');
-    expect(country.countryName, 'Spain');
-    expect(country.dialCode, '34');
-  });
-
-  test('detect Brazil phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[7]);
-    expect(country!.isoCode, 'BR');
-    expect(country.countryName, 'Brazil');
-    expect(country.dialCode, '55');
-  });
-
-  test('detect Mexico phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[8]);
-    expect(country!.isoCode, 'MX');
-    expect(country.countryName, 'Mexico');
-    expect(country.dialCode, '52');
-  });
-
-  test('detect India phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[9]);
-    expect(country!.isoCode, 'IN');
-    expect(country.countryName, 'India');
-    expect(country.dialCode, '91');
-  });
-
-  test('detect Australia phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[10]);
-    expect(country!.isoCode, 'AU');
-    expect(country.countryName, 'Australia');
-    expect(country.dialCode, '61');
-  });
-
-  test('detect Japan phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[11]);
-    expect(country!.isoCode, 'JP');
-    expect(country.countryName, 'Japan');
-    expect(country.dialCode, '81');
-  });
-
-  test('detect Russia phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[12]);
-    expect(country!.isoCode, 'RU');
-    expect(country.countryName, 'Russia');
-    expect(country.dialCode, '7');
-  });
-
-  test('detect South Africa phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[13]);
-    expect(country!.isoCode, 'ZA');
-    expect(country.countryName, 'South Africa');
-    expect(country.dialCode, '27');
-  });
-
-  test('detect Italy phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[14]);
-    expect(country!.isoCode, 'IT');
-    expect(country.countryName, 'Italy');
-    expect(country.dialCode, '39');
-  });
-
-  test('detect China phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[15]);
-    expect(country!.isoCode, 'CN');
-    expect(country.countryName, 'China');
-    expect(country.dialCode, '86');
-  });
-
-  test('detect Pakistan phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[16]);
-    expect(country!.isoCode, 'PK');
-    expect(country.countryName, 'Pakistan');
-    expect(country.dialCode, '92');
-  });
-
-  test('detect Nigeria phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[17]);
-    expect(country!.isoCode, 'NG');
-    expect(country.countryName, 'Nigeria');
-    expect(country.dialCode, '234');
-  });
-
-  test('detect Bangladesh phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[18]);
-    expect(country!.isoCode, 'BD');
-    expect(country.countryName, 'Bangladesh');
-    expect(country.dialCode, '880');
-  });
-
-  test('detect Egypt phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[19]);
-    expect(country!.isoCode, 'EG');
-    expect(country.countryName, 'Egypt');
-    expect(country.dialCode, '20');
-  });
-
-  test('detect Vietnam phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[20]);
-    expect(country!.isoCode, 'VN');
-    expect(country.countryName, 'Vietnam');
-    expect(country.dialCode, '84');
-  });
-
-  test('detect Turkey phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[21]);
-    expect(country!.isoCode, 'TR');
-    expect(country.countryName, 'Turkey');
-    expect(country.dialCode, '90');
-  });
-
-  test('detect Indonesia phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[22]);
-    expect(country!.isoCode, 'ID');
-    expect(country.countryName, 'Indonesia');
-    expect(country.dialCode, '62');
-  });
-
-  test('detect Philippines phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[23]);
-    expect(country!.isoCode, 'PH');
-    expect(country.countryName, 'Philippines');
-    expect(country.dialCode, '63');
-  });
-
-  test('detect Thailand phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[24]);
-    expect(country!.isoCode, 'TH');
-    expect(country.countryName, 'Thailand');
-    expect(country.dialCode, '66');
-  });
-
-  test('detect Saudi Arabia phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[25]);
-    expect(country!.isoCode, 'SA');
-    expect(country.countryName, 'Saudi Arabia');
-    expect(country.dialCode, '966');
-  });
-
-  test('detect Iran phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[26]);
-    expect(country!.isoCode, 'IR');
-    expect(country.countryName, 'Iran');
-    expect(country.dialCode, '98');
-  });
-
-  test('detect Malaysia phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[27]);
-    expect(country!.isoCode, 'MY');
-    expect(country.countryName, 'Malaysia');
-    expect(country.dialCode, '60');
-  });
-
-  test('detect Netherlands phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[28]);
-    expect(country!.isoCode, 'NL');
-    expect(country.countryName, 'Netherlands');
-    expect(country.dialCode, '31');
-  });
-
-  test('detect Poland phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[29]);
-    expect(country!.isoCode, 'PL');
-    expect(country.countryName, 'Poland');
-    expect(country.dialCode, '48');
-  });
-
-  test('detect Romania phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[30]);
-    expect(country!.isoCode, 'RO');
-    expect(country.countryName, 'Romania');
-    expect(country.dialCode, '40');
-  });
-
-  test('detect Ukraine phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[31]);
-    expect(country!.isoCode, 'UA');
-    expect(country.countryName, 'Ukraine');
-    expect(country.dialCode, '380');
-  });
-
-  test('detect Chile phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[32]);
-    expect(country!.isoCode, 'CL');
-    expect(country.countryName, 'Chile');
-    expect(country.dialCode, '56');
-  });
-
-  test('detect Colombia phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[33]);
-    expect(country!.isoCode, 'CO');
-    expect(country.countryName, 'Colombia');
-    expect(country.dialCode, '57');
-  });
-
-  test('detect Peru phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[34]);
-    expect(country!.isoCode, 'PE');
-    expect(country.countryName, 'Peru');
-    expect(country.dialCode, '51');
-  });
-
-  test('detect Venezuela phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[35]);
-    expect(country!.isoCode, 'VE');
-    expect(country.countryName, 'Venezuela');
-    expect(country.dialCode, '58');
-  });
-
-  test('detect Algeria phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[36]);
-    expect(country!.isoCode, 'DZ');
-    expect(country.countryName, 'Algeria');
-    expect(country.dialCode, '213');
-  });
-
-  test('detect Angola phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[37]);
-    expect(country!.isoCode, 'AO');
-    expect(country.countryName, 'Angola');
-    expect(country.dialCode, '244');
-  });
-
-  test('detect Benin phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[38]);
-    expect(country!.isoCode, 'BJ');
-    expect(country.countryName, 'Benin');
-    expect(country.dialCode, '229');
-  });
-
-  test('detect Botswana phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[39]);
-    expect(country!.isoCode, 'BW');
-    expect(country.countryName, 'Botswana');
-    expect(country.dialCode, '267');
-  });
-
-  test('detect Burkina Faso phone',()async{
-    final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
-    CountryManager countryManager = CountryManager();
-    await countryManager.initializeCountries();
-    List<Country> countries = countryManager.getCountries();
-    Country? country = phoneValidator.getCountryByPhone(countries, testNumbers[40]);
-    expect(country!.isoCode, 'BF');
-    expect(country.countryName, 'Burkina Faso');
-    expect(country.dialCode, '226');
-  });
+  for (final testNumber in testNumbers) {
+    test('detect phone ${testNumber['countryName']}', ()async {
+      final PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
+      Country? country = phoneValidator.getCountryByPhone(countries, testNumber['phone']);
+      expect(country!.isoCode, testNumber['isoCode']);
+      expect(country.countryName, testNumber['countryName']);
+      expect(country.dialCode, testNumber['dialCode']);
+    });
+  }
 }

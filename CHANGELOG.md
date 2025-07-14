@@ -53,3 +53,8 @@
 - add test cases for phone validator controller
 - add numbers to test cases
 - improve the documentation
+
+## 1.0.10
+- fix the documentation
+- define final widgets
+- improve the library
