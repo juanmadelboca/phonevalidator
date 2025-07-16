@@ -1,3 +1,4 @@
+import 'package:cellphone_validator/src/utils/widgets/check_animation/check_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -84,16 +85,13 @@ class _PhoneInputSelectorView extends State<PhoneInputSelectorView> {
                 child: SizedBox(
                     height: 50,
                     child: getCountryDropdown())),
-            ValueListenableBuilder<bool>(
-                valueListenable: widget.phoneValidator.isValidPhoneNotifier,
-                builder: (context, isValid, _) {
-                  return Flexible(
+                   Flexible(
                       flex: 4,
                       child: Padding(
                           padding:
                              const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-                          child: phoneTextField(isValid,widget.phoneValidator)));
-                })
+                          child: phoneTextField(widget.phoneValidator))
+                   )
           ],
         ));
   }
@@ -121,20 +119,7 @@ class _PhoneInputSelectorView extends State<PhoneInputSelectorView> {
         : [];
   }
 
-  Widget _isValidNumber(bool isValid){
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 500),
-      transitionBuilder: (child, animation) {
-        return ScaleTransition(
-          scale: animation,
-          child: child,
-        );
-      },
-      child: isValid
-          ? const Icon(key:Key('0'),Icons.check_circle_outline, color: Colors.green,)
-          : const Icon(key:Key('1'),Icons.cancel_outlined,color: Colors.red),
-    );
-  }
+
 
   void insertNumber(String text){
     widget.phoneValidator.checkPhone(text);
@@ -159,13 +144,13 @@ class _PhoneInputSelectorView extends State<PhoneInputSelectorView> {
     );
   }
 
-  TextField phoneTextField(bool isValid,PhoneValidator phoneValidator){
+  TextField phoneTextField(PhoneValidator phoneValidator){
    return TextField(
       decoration: InputDecoration(
         hintText: getPhovalidatorText(phoneValidator.country, 'mask',phoneValidator.lang),
         labelText: getPhovalidatorText(phoneValidator.country, 'countryName', phoneValidator.lang),
         prefix: Text(getPhovalidatorText(phoneValidator.country, 'visualText',phoneValidator.lang)),
-        suffix: _isValidNumber(isValid),
+        suffix: CheckAnimation(isValidPhoneNotifier:phoneValidator.isValidPhoneNotifier),
       ),
       keyboardType: TextInputType.phone,
       controller: _phoneEditingController,

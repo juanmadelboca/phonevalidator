@@ -107,20 +107,6 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
         : [];
   }
 
-  Widget _isValidNumber(bool isValid){
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 500),
-      transitionBuilder: (child, animation) {
-        return ScaleTransition(
-          scale: animation,
-          child: child,
-        );
-      },
-      child: isValid
-          ? const Icon(key:Key('0'),Icons.check_circle_outline, color: Colors.green,)
-          : const Icon(key:Key('1'),Icons.cancel_outlined,color: Colors.red),
-    );
-  }
 
   void insertNumber(String text){
     widget.phoneValidator.checkPhone(text);
