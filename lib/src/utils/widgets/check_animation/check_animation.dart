@@ -1,18 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CheckAnimation extends StatefulWidget{
-  ValueNotifier<bool> isValidPhoneNotifier;
-  CheckAnimation({super.key, required this.isValidPhoneNotifier});
-  @override
-  State<CheckAnimation> createState() => _CheckAnimation();
-}
 
-class _CheckAnimation extends State<CheckAnimation>{
+class CheckAnimation extends StatelessWidget{
+  ValueNotifier<bool> isValidPhoneNotifier;
+
+  CheckAnimation({required this.isValidPhoneNotifier});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-      return ValueListenableBuilder(valueListenable: widget.isValidPhoneNotifier..value, builder: (context,isValid,_){
+      return ValueListenableBuilder(valueListenable: isValidPhoneNotifier..value, builder: (context,isValid,_){
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 500),
           transitionBuilder: (child, animation) {

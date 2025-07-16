@@ -38,7 +38,6 @@ class _PhoneAutoDetectView extends State<PhoneAutoDetectView> {
 
   ValueNotifier<Country?> _country = ValueNotifier<Country?>(null);
 
-  CheckAnimation? checkAnimation;
 
 
   @override
@@ -55,7 +54,6 @@ class _PhoneAutoDetectView extends State<PhoneAutoDetectView> {
   /// - [context]: The build context.
   @override
   Widget build(BuildContext context) {
-    checkAnimation ??= CheckAnimation(isValidPhoneNotifier: widget.phoneValidator.isValidPhoneNotifier);
     return Padding(
         padding: const EdgeInsets.all(10),
         child:
@@ -109,12 +107,12 @@ class _PhoneAutoDetectView extends State<PhoneAutoDetectView> {
         enabled: true,
         selectionControls: null,
         decoration:country!=null?InputDecoration(
-          suffix: checkAnimation,
+          suffix: CheckAnimation(isValidPhoneNotifier: widget.phoneValidator.isValidPhoneNotifier),
           labelText: getPhovalidatorText(country, 'label', widget.phoneValidator.lang),
           prefixText: getPhovalidatorText(country, 'visualText', widget.phoneValidator.lang),
         ):InputDecoration(
             hintText: '## ### ###-####',
-          suffix:   checkAnimation
+          suffix:   CheckAnimation(isValidPhoneNotifier: widget.phoneValidator.isValidPhoneNotifier,)
         ),
         keyboardType: TextInputType.phone,
         controller: _phoneEditingController,
