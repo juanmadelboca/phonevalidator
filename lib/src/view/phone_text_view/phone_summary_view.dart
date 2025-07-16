@@ -10,56 +10,44 @@ import '../../utils/textFieldUtils.dart';
 /// It includes a dropdown for country selection and a text field for phone number input.
 /// The widget utilizes [PhoneValidator] to handle the validation logic and
 /// [CountryManager] to manage country-specific information.
-@immutable
-class PhoneSummaryView extends StatefulWidget {
-  final PhoneValidator phoneValidator;
-  final String fullPhoneNumber;
+
+
+/// [_PhoneValidatorWidget] is the state class for [PhoneValidatorWidget].
+///
+/// It manages the state of the widget, including loading status, country list, and input controllers.
+///
+class PhoneSummaryView extends StatefulWidget{
+  PhoneValidator phoneValidator;
+  String fullPhoneNumber;
+
   PhoneSummaryView({super.key, required this.phoneValidator, required this.fullPhoneNumber});
 
   @override
   State<PhoneSummaryView> createState() => _PhoneSummaryView();
 }
-
-/// [_PhoneValidatorWidget] is the state class for [PhoneValidatorWidget].
-///
-/// It manages the state of the widget, including loading status, country list, and input controllers.
 class _PhoneSummaryView extends State<PhoneSummaryView> {
   bool _loading = false;
   TextEditingController _phoneEditingController = TextEditingController();
   List<Country> countries = CellPhoneValidator.countries;
 
+
+
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
-    loadLanguage();
-  }
+    final country = widget.phoneValidator.country ??
+        widget.phoneValidator.getCountryByPhone(countries, widget.fullPhoneNumber.replaceAll('+', ''));
 
-  /// Loads language-specific country data.
-  ///
-  /// This method sets the language in [CountryManager], retrieves the list of countries,
-  /// and updates the loading state. It also selects the first country by default if available.
-  Future<void> loadLanguage() async {
-
-    _loading = false;
-
-  }
-
-  /// Called when the widget configuration changes.
-  ///
-  /// If the language in [PhoneValidator] changes, it reloads the language data,
-  /// clears the phone input field, and resets the phone validation status.
-  /// - [oldWidget]: The old widget configuration.
-  @override
-  void didUpdateWidget(covariant PhoneSummaryView oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.phoneValidator.lang != oldWidget.phoneValidator.lang) {
-      _loading = false;
-      _phoneEditingController.clear();
-      widget.phoneValidator.checkPhone('');
-      loadLanguage();
+    if (country != null) {
+      final stripped = widget.fullPhoneNumber.replaceFirst(country.dialCode, '');
+      _phoneEditingController.text = stripped;
+      widget.phoneValidator.setCountry(country);
     }
+    super.initState();
+
   }
+
+
+
 
   /// Builds the widget tree for the phone validator.
   ///
@@ -74,26 +62,15 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
             ValueListenableBuilder<bool>(
                 valueListenable: widget.phoneValidator.isValidPhoneNotifier,
                 builder: (context, isValid, _) {
-                  Country? country = widget.phoneValidator.country ?? widget.phoneValidator.getCountryByPhone(countries,widget.fullPhoneNumber.replaceAll('+',''));
-                  _phoneEditingController.text = widget.fullPhoneNumber.replaceFirst(country!.dialCode, '');
-                  return  Padding(
+                 return  Padding(
                           padding:
                           const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-                          child: phoneTextField(isValid,country));
+                          child: phoneTextField(isValid));
                 })
         );
   }
 
-  /// Handles the selection of a country from the dropdown.
-  ///
-  /// Updates the selected country in [PhoneValidator] and triggers a state update.
-  /// - [selected]: The newly selected country.
-  Future<void> chooseCountry(Country? selected) async {
-    if (selected == null) return;
-    setState(() {
-      widget.phoneValidator.setCountry(selected);
-    });
-  }
+
 
   /// Retrieves the input formatters for the phone number field.
   ///
@@ -107,42 +84,30 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
         : [];
   }
 
-  Widget _isValidNumber(bool isValid){
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 500),
-      transitionBuilder: (child, animation) {
-        return ScaleTransition(
-          scale: animation,
-          child: child,
-        );
-      },
-      child: isValid
-          ? const Icon(key:Key('0'),Icons.check_circle_outline, color: Colors.green,)
-          : const Icon(key:Key('1'),Icons.cancel_outlined,color: Colors.red),
-    );
-  }
-
-  void insertNumber(String text){
-    widget.phoneValidator.checkPhone(text);
-  }
-
-
-
-
-
-  TextField phoneTextField(bool isValid,Country? country) {
+  TextField phoneTextField(bool isValid) {
     return TextField(
       enabled: true,
       readOnly: true,
       decoration: InputDecoration(
-        labelText: getPhovalidatorText(country, 'label', widget.phoneValidator.lang),
-        prefixText: getPhovalidatorText(country, 'visualText', widget.phoneValidator.lang),
+        labelText: getPhovalidatorText(widget.phoneValidator.country, 'label', widget.phoneValidator.lang),
+        prefixText: getPhovalidatorText(widget.phoneValidator.country, 'visualText', widget.phoneValidator.lang),
+        suffixIcon: IconButton(onPressed: (){
+          String _phone = widget.fullPhoneNumber;
+          Clipboard.setData(ClipboardData(text: _phone));
+        }, icon: Icon(Icons.copy))
       ),
       keyboardType: TextInputType.phone,
       controller: _phoneEditingController,
-      inputFormatters: getInputFormater(country),
+      inputFormatters: getInputFormater(widget.phoneValidator.country),
 
       );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _phoneEditingController.dispose();
+    super.dispose();
   }
 
 

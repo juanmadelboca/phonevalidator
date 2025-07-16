@@ -57,6 +57,8 @@ class _PhoneInputSelectorView extends State<PhoneInputSelectorView> {
       _phoneEditingController.clear();
       widget.phoneValidator.checkPhone('');
       loadLanguage();
+    }else{
+
     }
   }
 
@@ -74,26 +76,25 @@ class _PhoneInputSelectorView extends State<PhoneInputSelectorView> {
             child: CircularProgressIndicator(),
           ));
     }
-    return Padding(
-        padding: const EdgeInsets.all(10),
-        child: Row(
+    return Padding(padding: EdgeInsets.all(10),
+         child:
+         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Flexible(
-                flex: 2,
-                child: SizedBox(
+             SizedBox(
                     height: 50,
-                    child: getCountryDropdown())),
+                    child: getCountryDropdown()),
+            Flexible(
+                flex: 5,
+                child:
             ValueListenableBuilder<bool>(
                 valueListenable: widget.phoneValidator.isValidPhoneNotifier,
                 builder: (context, isValid, _) {
-                  return Flexible(
-                      flex: 4,
-                      child: Padding(
+                  return  Padding(
                           padding:
                              const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-                          child: phoneTextField(isValid,widget.phoneValidator)));
-                })
+                          child: phoneTextField(isValid,widget.phoneValidator));
+                }))
           ],
         ));
   }
@@ -106,6 +107,7 @@ class _PhoneInputSelectorView extends State<PhoneInputSelectorView> {
     if (selected == null) return;
     setState(() {
       widget.phoneValidator.setCountry(selected);
+      widget.phoneValidator.checkPhone(_phoneEditingController.text);
     });
   }
 
@@ -173,6 +175,12 @@ class _PhoneInputSelectorView extends State<PhoneInputSelectorView> {
       onChanged: insertNumber,);
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _phoneEditingController.dispose();
+    super.dispose();
+  }
 
 
 }

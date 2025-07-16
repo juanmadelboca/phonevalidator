@@ -78,9 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: [
-            FractionallySizedBox(
-                widthFactor: 0.7,
-                child: PhoneInputSelectorView(phoneValidator: phoneValidator.value!)),
+             PhoneInputSelectorView(phoneValidator: phoneValidator.value!),
             ListenableBuilder(
                 listenable: phoneValidator!.value.isValidPhoneNotifier,
                 builder: (context, _) {

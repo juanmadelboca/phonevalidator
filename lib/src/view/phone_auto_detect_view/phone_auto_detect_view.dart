@@ -1,3 +1,4 @@
+import 'package:cellphone_validator/src/utils/widgets/MaskTextController/mask_text_editing_controller.dart';
 import 'package:cellphone_validator/src/utils/widgets/check_animation/check_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,18 +34,27 @@ class PhoneAutoDetectView extends StatefulWidget {
 ///
 /// It manages the state of the widget, including loading status, country list, and input controllers.
 class _PhoneAutoDetectView extends State<PhoneAutoDetectView> {
-  TextEditingController _phoneEditingController = TextEditingController();
+  MaskTextEditingController _phoneEditingController = MaskTextEditingController();
   List<Country> countries = CellPhoneValidator.countries;
 
   ValueNotifier<Country?> _country = ValueNotifier<Country?>(null);
 
   CheckAnimation? checkAnimation;
 
+  String _clipboardText = '';
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    _phoneEditingController.addListener(() {
+      final raw = _phoneEditingController.text;
+      final maskedText = _phoneEditingController.setMask(raw);
+      if (_phoneEditingController.text != maskedText) {
+        _phoneEditingController.text = maskedText;
+      }
+    });
   }
 
   
@@ -76,36 +86,37 @@ class _PhoneAutoDetectView extends State<PhoneAutoDetectView> {
   ///
   /// Returns a list of [TextInputFormatter] including [MaskedTextInputFormatter] if a country is selected.
 
-  List<TextInputFormatter> getInputFormater(Country? country) {
-    return country != null
-        ? [
-      MaskedTextInputFormatter(mask:country.mask),
-    ]
-        : [];
-  }
-
  
 
-  void insertNumber(String text){
-    if(_country.value==null||text.isEmpty) {
-      _country.value = widget.phoneValidator.getCountryByPhone(countries, text);
-      if (_country.value != null) {
-        String aux = _phoneEditingController.value.text;
-        aux = aux.replaceFirst(_country.value!.dialCode, '');
-        _phoneEditingController.text = aux;
-        _phoneEditingController.selection = TextSelection.fromPosition(
-          TextPosition(offset: aux.length)
-        );
+  void insertNumber(String text)async{
+    final clipboardData = await Clipboard.getData('text/plain');
+    final clipboardText = clipboardData?.text ?? '';
+    bool isPaste = clipboardText.isNotEmpty && clipboardText != _clipboardText;
+    try{
+      if(_country.value == null ||text.isEmpty|| isPaste){
+        if(isPaste){
+          _findCountry(clipboardText,true);
+        }else{
+          _findCountry(text,false);
+        }
       }
-    }else{
-      widget.phoneValidator.checkPhoneByCountry(_phoneEditingController.text, _country.value);
+    }catch(e){
+
+    }finally{
+      if(_country.value!=null){
+        _phoneEditingController.setMask(_country.value!.mask);
+        widget.phoneValidator.checkPhoneByCountry(
+            _phoneEditingController.text, _country.value);
+      }
     }
+
   }
+
+
   
   Widget phoneTextField(bool isValid,Country? country) {
     return ValueListenableBuilder(valueListenable: _country, builder:(context,country,_){
       return TextField(
-
         enabled: true,
         selectionControls: null,
         decoration:country!=null?InputDecoration(
@@ -119,9 +130,36 @@ class _PhoneAutoDetectView extends State<PhoneAutoDetectView> {
         keyboardType: TextInputType.phone,
         controller: _phoneEditingController,
         onChanged: insertNumber,
-        inputFormatters: getInputFormater(country),
       );
     });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _phoneEditingController.dispose();
+    _country.dispose();
+    super.dispose();
+  }
+
+  _setAuxText(String number,Country country,bool isPaste){
+    String aux = number;
+    if(aux.contains(country.dialCode)){
+      aux = aux.replaceFirst(country.dialCode,'');
+    }
+    _phoneEditingController.text = aux;
+  }
+
+  _findCountry(String text,bool isPaste){
+    _country.value = widget.phoneValidator.getCountryByPhone(countries, text);
+    if(isPaste){
+      _clipboardText = text;
+      _phoneEditingController.text='';
+    }
+    if (_country.value != null) {
+      _phoneEditingController.setMask(_country.value!.mask);
+    }
+    _setAuxText(text,_country.value!,isPaste);
   }
   
 }

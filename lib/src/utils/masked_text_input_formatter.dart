@@ -40,3 +40,26 @@ class MaskedTextInputFormatter extends TextInputFormatter {
 
 
 }
+
+class PasteFormattingFormatter extends TextInputFormatter {
+  final String Function(String) onPasteFormat;
+
+  PasteFormattingFormatter({required this.onPasteFormat});
+
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue,
+      TextEditingValue newValue,
+      ) {
+    // Heuristic: if the user pasted text (big change), reformat
+    if ((newValue.text.length - oldValue.text.length).abs() > 1) {
+      final formatted = onPasteFormat(newValue.text);
+      return TextEditingValue(
+        text: formatted,
+        selection: TextSelection.collapsed(offset: formatted.length),
+      );
+    }
+
+    return newValue;
+  }
+}
