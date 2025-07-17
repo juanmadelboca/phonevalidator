@@ -1,3 +1,4 @@
+import 'package:cellphone_validator/src/utils/masked_text_editing_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,8 +26,9 @@ class PhoneSummaryView extends StatefulWidget {
 /// It manages the state of the widget, including loading status, country list, and input controllers.
 class _PhoneSummaryView extends State<PhoneSummaryView> {
   bool _loading = false;
-  TextEditingController _phoneEditingController = TextEditingController();
+  MaskedTextEditingController _phoneEditingController = MaskedTextEditingController();
   List<Country> countries = CellPhoneValidator.countries;
+  Country? country;
 
   @override
   void initState() {
@@ -42,7 +44,8 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
   Future<void> loadLanguage() async {
 
     _loading = false;
-
+     country =  widget.phoneValidator.getCountryByPhone(countries,widget.fullPhoneNumber.replaceAll('+',''));
+    _phoneEditingController.setMask(country!.mask);
   }
 
   /// Called when the widget configuration changes.
@@ -74,12 +77,13 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
             ValueListenableBuilder<bool>(
                 valueListenable: widget.phoneValidator.isValidPhoneNotifier,
                 builder: (context, isValid, _) {
-                  Country? country = widget.phoneValidator.country ?? widget.phoneValidator.getCountryByPhone(countries,widget.fullPhoneNumber.replaceAll('+',''));
-                  _phoneEditingController.text = widget.fullPhoneNumber.replaceFirst(country!.dialCode, '');
+                  String aux = widget.fullPhoneNumber.replaceFirst(country!.dialCode, '');
+                  _phoneEditingController.text = aux;
+
                   return  Padding(
                           padding:
                           const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-                          child: phoneTextField(isValid,country));
+                          child: phoneTextField(country));
                 })
         );
   }
@@ -99,13 +103,7 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
   ///
   /// Returns a list of [TextInputFormatter] including [MaskedTextInputFormatter] if a country is selected.
 
-  List<TextInputFormatter> getInputFormater(Country? country) {
-    return country != null
-        ? [
-      MaskedTextInputFormatter(mask:country.mask),
-    ]
-        : [];
-  }
+
 
 
   void insertNumber(String text){
@@ -116,7 +114,7 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
 
 
 
-  TextField phoneTextField(bool isValid,Country? country) {
+  TextField phoneTextField(Country? country) {
     return TextField(
       enabled: true,
       readOnly: true,
@@ -126,8 +124,6 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
       ),
       keyboardType: TextInputType.phone,
       controller: _phoneEditingController,
-      inputFormatters: getInputFormater(country),
-
       );
   }
 
