@@ -58,3 +58,8 @@
 - fix the documentation
 - define final widgets
 - improve the library
+
+## 1.0.11
+- fix the documentation
+- add mask in the phone_summary_view
+- add test cases for phone_auto_detect_view

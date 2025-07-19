@@ -41,16 +41,46 @@ ar, de, en, es, fr, hi, id, it, ja, ko, pt, ru, ur — and more coming soon.
 | PhoneAutoDetectView | An intelligent phone input widget that automatically detects the country based on the dial code entered. It formats the number accordingly and provides real-time validation feedback.|
 
 ###  Export List
+<details>
+<summary>cellphone_validator</summary>
+*  path :`package:cellphone_validator/cellphone_validator.dart`  
+* **Description:** Main package entry point. Re-exports all core classes, models, and widgets for easy access.
+</details>
 
-| Export Path                                                                                     | Description                                                                                       |
-|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `package:cellphone_validator/cellphone_validator.dart`                                          | Main package entry point. Re-exports all core classes, models, and widgets for easy access.       |
-| `package:cellphone_validator/src/controllers/country_manager.dart`                              | Provides logic for managing and retrieving supported countries.                                   |
-| `package:cellphone_validator/src/models/country.dart`                                           | Defines the `Country` model, which includes dial codes, masks, and display data.                  |
-| `package:cellphone_validator/src/controllers/phone_validator.dart`                              | Core validator logic that checks if phone numbers are valid according to country-specific rules.  |
-| `package:cellphone_validator/src/view/phone_auto_detect_view/phone_auto_detect_view.dart`       | Widget that auto-detects the country from the phone number and validates it.                      |
-| `package:cellphone_validator/src/view/phone_input_selector_view/phone_input_selector_view.dart` | Widget that allows manual country selection and phone input with validation.                      |
-| `package:cellphone_validator/src/view/phone_text_view/phone_summary_view.dart`                  | Read-only widget that displays a previously validated phone number with formatting.               |
+<details>
+<summary>country_manager</summary>
+* path :`package:cellphone_validator/src/controllers/country_manager.dart` 
+* **Description:** Provides logic for managing and retrieving supported countries.   
+</details>
+
+<details>
+<summary>country</summary>
+* path :`package:cellphone_validator/src/controllers/country_manager.dart` 
+* **Description:**  Defines the `Country` model, which includes dial codes, masks, and display data.  
+</details>
+
+<details>
+<summary>phone_validator</summary>
+* path :`package:cellphone_validator/src/controllers/phone_validator.dart`    
+* **Description:**  Core validator logic that checks if phone numbers are valid according to country-specific rules.  
+</details>
+
+<details>
+<summary>phone_auto_detect_view</summary>
+* path :`package:cellphone_validator/src/view/phone_auto_detect_view/phone_auto_detect_view.dart`    
+* **Description:**  Widget that auto-detects the country from the phone number and validates it.  
+</details>
+<details>
+<summary>phone_input_selector_view</summary>
+* path :`package:cellphone_validator/src/view/phone_input_selector_view/phone_input_selector_view.dart`    
+* **Description:**  Widget that allows manual country selection and phone input with validation.  
+</details>
+
+<details>
+<summary>phone_summary_view</summary>
+* path :`package:cellphone_validator/src/view/phone_text_view/phone_summary_view.dart`    
+* **Description:**  Widget that displays a phone number with formatting.  
+</details>
 
 ## How to Use
 
