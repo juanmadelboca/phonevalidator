@@ -4,12 +4,16 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "AF",
   },
   {
+    "countryName": "África do Sul",
+    "isoCode": "ZA",
+  },
+  {
     "countryName": "Albânia",
     "isoCode": "AL",
   },
   {
-    "countryName": "Argélia",
-    "isoCode": "DZ",
+    "countryName": "Alemanha",
+    "isoCode": "DE",
   },
   {
     "countryName": "Andorra",
@@ -20,12 +24,20 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "AO",
   },
   {
-    "countryName": "앵귈라",
+    "countryName": "Anguila",
     "isoCode": "AI"
   },
   {
     "countryName": "Antígua e Barbuda",
     "isoCode": "AG",
+  },
+  {
+    "countryName": "Arábia Saudita",
+    "isoCode": "SA",
+  },
+  {
+    "countryName": "Argélia",
+    "isoCode": "DZ",
   },
   {
     "countryName": "Argentina",
@@ -64,10 +76,6 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "BB",
   },
   {
-    "countryName": "Bielorrússia",
-    "isoCode": "BY",
-  },
-  {
     "countryName": "Bélgica",
     "isoCode": "BE",
   },
@@ -80,8 +88,8 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "BJ",
   },
   {
-    "countryName": "Butão",
-    "isoCode": "BT",
+    "countryName": "Bielorrússia",
+    "isoCode": "BY",
   },
   {
     "countryName": "Bolívia",
@@ -116,24 +124,32 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "BI",
   },
   {
-    "countryName": "Camboja",
-    "isoCode": "KH",
-  },
-  {
-    "countryName": "Camarões",
-    "isoCode": "CM",
-  },
-  {
-    "countryName": "Canadá",
-    "isoCode": "CA",
+    "countryName": "Butão",
+    "isoCode": "BT",
   },
   {
     "countryName": "Cabo Verde",
     "isoCode": "CV",
   },
   {
-    "countryName": "República Centro-Africana",
-    "isoCode": "CF",
+    "countryName": "Camarões",
+    "isoCode": "CM",
+  },
+  {
+    "countryName": "Camboja",
+    "isoCode": "KH",
+  },
+  {
+    "countryName": "Canadá",
+    "isoCode": "CA",
+  },
+  {
+    "countryName": "Catar",
+    "isoCode": "QA",
+  },
+  {
+    "countryName": "Cazaquistão",
+    "isoCode": "KZ",
   },
   {
     "countryName": "Chade",
@@ -148,6 +164,14 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "CN",
   },
   {
+    "countryName": "Chipre",
+    "isoCode": "CY",
+  },
+  {
+    "countryName": "Cidade do Vaticano",
+    "isoCode": "VA",
+  },
+  {
     "countryName": "Colômbia",
     "isoCode": "CO",
   },
@@ -158,6 +182,14 @@ List<Map<String, dynamic>> countries_pt = [
   {
     "countryName": "Congo",
     "isoCode": "CG",
+  },
+  {
+    "countryName": "Coreia do Norte",
+    "isoCode": "KP",
+  },
+  {
+    "countryName": "Coreia do Sul",
+    "isoCode": "KR",
   },
   {
     "countryName": "Costa Rica",
@@ -172,18 +204,6 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "CU",
   },
   {
-    "countryName": "Chipre",
-    "isoCode": "CY",
-  },
-  {
-    "countryName": "República Tcheca",
-    "isoCode": "CZ",
-  },
-  {
-    "countryName": "República Democrática do Congo",
-    "isoCode": "CD",
-  },
-  {
     "countryName": "Dinamarca",
     "isoCode": "DK",
   },
@@ -196,14 +216,6 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "DM",
   },
   {
-    "countryName": "República Dominicana",
-    "isoCode": "DO",
-  },
-  {
-    "countryName": "Equador",
-    "isoCode": "EC",
-  },
-  {
     "countryName": "Egito",
     "isoCode": "EG",
   },
@@ -212,20 +224,40 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "SV",
   },
   {
-    "countryName": "Guiné Equatorial",
-    "isoCode": "GQ",
+    "countryName": "Emirados Árabes Unidos",
+    "isoCode": "AE",
+  },
+  {
+    "countryName": "Equador",
+    "isoCode": "EC",
   },
   {
     "countryName": "Eritreia",
     "isoCode": "ER",
   },
   {
-    "countryName": "Estônia",
-    "isoCode": "EE",
+    "countryName": "Eslováquia",
+    "isoCode": "SK",
+  },
+  {
+    "countryName": "Eslovênia",
+    "isoCode": "SI",
+  },
+  {
+    "countryName": "Espanha",
+    "isoCode": "ES",
   },
   {
     "countryName": "Essuatíni",
     "isoCode": "SZ",
+  },
+  {
+    "countryName": "Estados Unidos",
+    "isoCode": "US",
+  },
+  {
+    "countryName": "Estônia",
+    "isoCode": "EE",
   },
   {
     "countryName": "Etiópia",
@@ -234,6 +266,10 @@ List<Map<String, dynamic>> countries_pt = [
   {
     "countryName": "Fiji",
     "isoCode": "FJ",
+  },
+  {
+    "countryName": "Filipinas",
+    "isoCode": "PH",
   },
   {
     "countryName": "Finlândia",
@@ -252,40 +288,44 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "GM",
   },
   {
-    "countryName": "Geórgia",
-    "isoCode": "GE",
-  },
-  {
-    "countryName": "Alemanha",
-    "isoCode": "DE",
-  },
-  {
     "countryName": "Gana",
     "isoCode": "GH",
   },
   {
-    "countryName": "Grécia",
-    "isoCode": "GR",
+    "countryName": "Geórgia",
+    "isoCode": "GE",
   },
   {
     "countryName": "Granada",
     "isoCode": "GD",
   },
   {
+    "countryName": "Grécia",
+    "isoCode": "GR",
+  },
+  {
+    "countryName": "Gronelândia",
+    "isoCode": "GL",
+  },
+  {
     "countryName": "Guatemala",
     "isoCode": "GT",
+  },
+  {
+    "countryName": "Guiana",
+    "isoCode": "GY",
   },
   {
     "countryName": "Guiné",
     "isoCode": "GN",
   },
   {
-    "countryName": "Guiné-Bissau",
-    "isoCode": "GW",
+    "countryName": "Guiné Equatorial",
+    "isoCode": "GQ",
   },
   {
-    "countryName": "Guiana",
-    "isoCode": "GY",
+    "countryName": "Guiné-Bissau",
+    "isoCode": "GW",
   },
   {
     "countryName": "Haiti",
@@ -304,8 +344,16 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "HU",
   },
   {
-    "countryName": "Islândia",
-    "isoCode": "IS",
+    "countryName": "Iêmen",
+    "isoCode": "YE",
+  },
+  {
+    "countryName": "Ilhas Marshall",
+    "isoCode": "MH",
+  },
+  {
+    "countryName": "Ilhas Salomão",
+    "isoCode": "SB",
   },
   {
     "countryName": "Índia",
@@ -328,6 +376,10 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "IE",
   },
   {
+    "countryName": "Islândia",
+    "isoCode": "IS",
+  },
+  {
     "countryName": "Israel",
     "isoCode": "IL",
   },
@@ -348,28 +400,24 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "JO",
   },
   {
-    "countryName": "Cazaquistão",
-    "isoCode": "KZ",
-  },
-  {
-    "countryName": "Quênia",
-    "isoCode": "KE",
-  },
-  {
     "countryName": "Kiribati",
     "isoCode": "KI",
+  },
+  {
+    "countryName": "Kosovo",
+    "isoCode": "XK",
   },
   {
     "countryName": "Kuwait",
     "isoCode": "KW",
   },
   {
-    "countryName": "Quirguistão",
-    "isoCode": "KG",
-  },
-  {
     "countryName": "Laos",
     "isoCode": "LA",
+  },
+  {
+    "countryName": "Lesoto",
+    "isoCode": "LS",
   },
   {
     "countryName": "Letônia",
@@ -378,10 +426,6 @@ List<Map<String, dynamic>> countries_pt = [
   {
     "countryName": "Líbano",
     "isoCode": "LB",
-  },
-  {
-    "countryName": "Lesoto",
-    "isoCode": "LS",
   },
   {
     "countryName": "Libéria",
@@ -404,16 +448,20 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "LU",
   },
   {
+    "countryName": "Macedônia do Norte",
+    "isoCode": "MK",
+  },
+  {
     "countryName": "Madagascar",
     "isoCode": "MG",
   },
   {
-    "countryName": "Malawi",
-    "isoCode": "MW",
-  },
-  {
     "countryName": "Malásia",
     "isoCode": "MY",
+  },
+  {
+    "countryName": "Malawi",
+    "isoCode": "MW",
   },
   {
     "countryName": "Maldivas",
@@ -428,24 +476,32 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "MT",
   },
   {
-    "countryName": "Ilhas Marshall",
-    "isoCode": "MH",
-  },
-  {
-    "countryName": "Mauritânia",
-    "isoCode": "MR",
+    "countryName": "Marrocos",
+    "isoCode": "MA",
   },
   {
     "countryName": "Maurícia",
     "isoCode": "MU",
   },
   {
+    "countryName": "Mauritânia",
+    "isoCode": "MR",
+  },
+  {
     "countryName": "México",
     "isoCode": "MX",
   },
   {
+    "countryName": "Mianmar",
+    "isoCode": "MM",
+  },
+  {
     "countryName": "Micronésia",
     "isoCode": "FM",
+  },
+  {
+    "countryName": "Moçambique",
+    "isoCode": "MZ",
   },
   {
     "countryName": "Moldávia",
@@ -464,18 +520,6 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "ME",
   },
   {
-    "countryName": "Marrocos",
-    "isoCode": "MA",
-  },
-  {
-    "countryName": "Moçambique",
-    "isoCode": "MZ",
-  },
-  {
-    "countryName": "Mianmar",
-    "isoCode": "MM",
-  },
-  {
     "countryName": "Namíbia",
     "isoCode": "NA",
   },
@@ -486,14 +530,6 @@ List<Map<String, dynamic>> countries_pt = [
   {
     "countryName": "Nepal",
     "isoCode": "NP",
-  },
-  {
-    "countryName": "Países Baixos",
-    "isoCode": "NL",
-  },
-  {
-    "countryName": "Nova Zelândia",
-    "isoCode": "NZ",
   },
   {
     "countryName": "Nicarágua",
@@ -508,24 +544,20 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "NG",
   },
   {
-    "countryName": "Coreia do Norte",
-    "isoCode": "KP",
-  },
-  {
-    "countryName": "Macedônia do Norte",
-    "isoCode": "MK",
-  },
-  {
     "countryName": "Noruega",
     "isoCode": "NO",
+  },
+  {
+    "countryName": "Nova Zelândia",
+    "isoCode": "NZ",
   },
   {
     "countryName": "Omã",
     "isoCode": "OM",
   },
   {
-    "countryName": "Paquistão",
-    "isoCode": "PK",
+    "countryName": "Países Baixos",
+    "isoCode": "NL",
   },
   {
     "countryName": "Palau",
@@ -544,16 +576,16 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "PG",
   },
   {
+    "countryName": "Paquistão",
+    "isoCode": "PK",
+  },
+  {
     "countryName": "Paraguai",
     "isoCode": "PY",
   },
   {
     "countryName": "Peru",
     "isoCode": "PE",
-  },
-  {
-    "countryName": "Filipinas",
-    "isoCode": "PH",
   },
   {
     "countryName": "Polônia",
@@ -564,32 +596,44 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "PT",
   },
   {
-    "countryName": "Catar",
-    "isoCode": "QA",
+    "countryName": "Quênia",
+    "isoCode": "KE",
+  },
+  {
+    "countryName": "Quirguistão",
+    "isoCode": "KG",
+  },
+  {
+    "countryName": "Reino Unido",
+    "isoCode": "GB",
+  },
+  {
+    "countryName": "República Centro-Africana",
+    "isoCode": "CF",
+  },
+  {
+    "countryName": "República Democrática do Congo",
+    "isoCode": "CD",
+  },
+  {
+    "countryName": "República Dominicana",
+    "isoCode": "DO",
+  },
+  {
+    "countryName": "República Tcheca",
+    "isoCode": "CZ",
   },
   {
     "countryName": "Romênia",
     "isoCode": "RO",
   },
   {
-    "countryName": "Rússia",
-    "isoCode": "RU",
-  },
-  {
     "countryName": "Ruanda",
     "isoCode": "RW",
   },
   {
-    "countryName": "São Cristóvão e Nevis",
-    "isoCode": "KN",
-  },
-  {
-    "countryName": "Santa Lúcia",
-    "isoCode": "LC",
-  },
-  {
-    "countryName": "São Vicente e Granadinas",
-    "isoCode": "VC",
+    "countryName": "Rússia",
+    "isoCode": "RU",
   },
   {
     "countryName": "Samoa",
@@ -600,16 +644,28 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "SM",
   },
   {
+    "countryName": "Santa Lúcia",
+    "isoCode": "LC",
+  },
+  {
+    "countryName": "São Cristóvão e Nevis",
+    "isoCode": "KN",
+  },
+  {
     "countryName": "São Tomé e Príncipe",
     "isoCode": "ST",
   },
   {
-    "countryName": "Arábia Saudita",
-    "isoCode": "SA",
+    "countryName": "São Vicente e Granadinas",
+    "isoCode": "VC",
   },
   {
     "countryName": "Senegal",
     "isoCode": "SN",
+  },
+  {
+    "countryName": "Serra Leoa",
+    "isoCode": "SL",
   },
   {
     "countryName": "Sérvia",
@@ -620,44 +676,16 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "SC",
   },
   {
-    "countryName": "Serra Leoa",
-    "isoCode": "SL",
-  },
-  {
     "countryName": "Singapura",
     "isoCode": "SG",
   },
   {
-    "countryName": "Eslováquia",
-    "isoCode": "SK",
-  },
-  {
-    "countryName": "Eslovênia",
-    "isoCode": "SI",
-  },
-  {
-    "countryName": "Ilhas Salomão",
-    "isoCode": "SB",
+    "countryName": "Síria",
+    "isoCode": "SY",
   },
   {
     "countryName": "Somália",
     "isoCode": "SO",
-  },
-  {
-    "countryName": "África do Sul",
-    "isoCode": "ZA",
-  },
-  {
-    "countryName": "Coreia do Sul",
-    "isoCode": "KR",
-  },
-  {
-    "countryName": "Sudão do Sul",
-    "isoCode": "SS",
-  },
-  {
-    "countryName": "Espanha",
-    "isoCode": "ES",
   },
   {
     "countryName": "Sri Lanka",
@@ -668,8 +696,8 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "SD",
   },
   {
-    "countryName": "Suriname",
-    "isoCode": "SR",
+    "countryName": "Sudão do Sul",
+    "isoCode": "SS",
   },
   {
     "countryName": "Suécia",
@@ -680,8 +708,12 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "CH",
   },
   {
-    "countryName": "Síria",
-    "isoCode": "SY",
+    "countryName": "Suriname",
+    "isoCode": "SR",
+  },
+  {
+    "countryName": "Tailândia",
+    "isoCode": "TH",
   },
   {
     "countryName": "Taiwan",
@@ -694,10 +726,6 @@ List<Map<String, dynamic>> countries_pt = [
   {
     "countryName": "Tanzânia",
     "isoCode": "TZ",
-  },
-  {
-    "countryName": "Tailândia",
-    "isoCode": "TH",
   },
   {
     "countryName": "Timor-Leste",
@@ -720,36 +748,24 @@ List<Map<String, dynamic>> countries_pt = [
     "isoCode": "TN",
   },
   {
-    "countryName": "Turquia",
-    "isoCode": "TR",
-  },
-  {
     "countryName": "Turcomenistão",
     "isoCode": "TM",
+  },
+  {
+    "countryName": "Turquia",
+    "isoCode": "TR",
   },
   {
     "countryName": "Tuvalu",
     "isoCode": "TV",
   },
   {
-    "countryName": "Uganda",
-    "isoCode": "UG",
-  },
-  {
     "countryName": "Ucrânia",
     "isoCode": "UA",
   },
   {
-    "countryName": "Emirados Árabes Unidos",
-    "isoCode": "AE",
-  },
-  {
-    "countryName": "Reino Unido",
-    "isoCode": "GB",
-  },
-  {
-    "countryName": "Estados Unidos",
-    "isoCode": "US",
+    "countryName": "Uganda",
+    "isoCode": "UG",
   },
   {
     "countryName": "Uruguai",
@@ -770,10 +786,6 @@ List<Map<String, dynamic>> countries_pt = [
   {
     "countryName": "Vietnã",
     "isoCode": "VN",
-  },
-  {
-    "countryName": "Iêmen",
-    "isoCode": "YE",
   },
   {
     "countryName": "Zâmbia",

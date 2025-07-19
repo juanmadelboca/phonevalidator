@@ -164,6 +164,10 @@ List<Map<String, dynamic>> countries_zh= [
     "isoCode": "CR",
   },
   {
+    "countryName": "科索沃",
+    "isoCode": "XK",
+  },
+  {
     "countryName": "克罗地亚",
     "isoCode": "HR",
   },
@@ -240,6 +244,10 @@ List<Map<String, dynamic>> countries_zh= [
     "isoCode": "FI",
   },
   {
+    "countryName": "梵蒂冈城",
+    "isoCode": "VA",
+  },
+  {
     "countryName": "法国",
     "isoCode": "FR",
   },
@@ -254,6 +262,10 @@ List<Map<String, dynamic>> countries_zh= [
   {
     "countryName": "格鲁吉亚",
     "isoCode": "GE",
+  },
+    {
+    "countryName": "格陵兰",
+    "isoCode": "GL",
   },
   {
     "countryName": "德国",

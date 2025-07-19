@@ -132,6 +132,10 @@ List<Map<String, dynamic>> countries_fr = [
     "isoCode": "CV",
   },
   {
+    "countryName": "Cité du Vatican",
+    "isoCode": "VA",
+  },
+  {
     "countryName": "République centrafricaine",
     "isoCode": "CF",
   },
@@ -268,6 +272,10 @@ List<Map<String, dynamic>> countries_fr = [
     "isoCode": "GR",
   },
   {
+    "countryName": "Groenland",
+    "isoCode": "GL",
+  },
+  {
     "countryName": "Grenade",
     "isoCode": "GD",
   },
@@ -358,6 +366,10 @@ List<Map<String, dynamic>> countries_fr = [
   {
     "countryName": "Kiribati",
     "isoCode": "KI",
+  },
+  {
+    "countryName": "Kosovo",
+    "isoCode": "XK",
   },
   {
     "countryName": "Koweït",
