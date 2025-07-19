@@ -268,6 +268,10 @@ List<Map<String, dynamic>> countries_hi = [
     "isoCode": "GR",
   },
   {
+    "countryName": "ग्रीनलैंड",
+    "isoCode": "GL",
+  },
+  {
     "countryName": "ग्रेनेडा",
     "isoCode": "GD",
   },
@@ -358,6 +362,10 @@ List<Map<String, dynamic>> countries_hi = [
   {
     "countryName": "किरिबाती",
     "isoCode": "KI",
+  },
+  {
+    "countryName": "कोसोवो",
+    "isoCode": "XK",
   },
   {
     "countryName": "कुवैत",
@@ -762,6 +770,10 @@ List<Map<String, dynamic>> countries_hi = [
   {
     "countryName": "वानुअतु",
     "isoCode": "VU",
+  },
+  {
+    "countryName": "वेटिकन सिटी",
+    "isoCode": "VA",
   },
   {
     "countryName": "वेनेज़ुएला",

@@ -164,6 +164,10 @@ List<Map<String, dynamic>> countries_ur = [
     "isoCode": "CR",
   },
   {
+    "countryName": "کوسوو",
+    "isoCode": "XK",
+  },
+  {
     "countryName": "کروشیا",
     "isoCode": "HR",
   },
@@ -266,6 +270,10 @@ List<Map<String, dynamic>> countries_ur = [
   {
     "countryName": "یونان",
     "isoCode": "GR",
+  },
+  {
+    "countryName": "گرین لینڈ",
+    "isoCode": "GL",
   },
   {
     "countryName": "گریناڈا",
@@ -762,6 +770,10 @@ List<Map<String, dynamic>> countries_ur = [
   {
     "countryName": "وانواتو",
     "isoCode": "VU",
+  },
+  {
+    "countryName": "ویٹیکن سٹی",
+    "isoCode": "VA",
   },
   {
     "countryName": "وینزویلا",

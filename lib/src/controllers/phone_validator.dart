@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 
 import '../../cellphone_validator.dart';
@@ -48,17 +50,7 @@ class PhoneValidator{
       isValidPhoneNotifier.value = false;
       return;
     }
-    String pattern = country!.pattern;
-    RegExp regExp = RegExp(pattern);
-    String fullNumber = "${_country!.visualText}${phoneNumber.replaceAll(RegExp(r'[^0-9]'), '')}";
-    phone = fullNumber;
-    String aux = fullNumber.substring(_country!.visualText.length);
-    bool containsAreaCode = checkAreaCode(_country!,aux);
-    if(containsAreaCode) {
-      isValidPhoneNotifier.value = regExp.hasMatch(fullNumber);
-    }else{
-      isValidPhoneNotifier.value = false;
-    }
+    isValidPhoneNotifier.value = checkPhonePattern(phoneNumber,_country!);
   }
 
   void checkPhoneByCountry(String phoneNumber,Country? country){
@@ -66,6 +58,11 @@ class PhoneValidator{
       isValidPhoneNotifier.value = false;
       return;
     }
+    bool check = checkPhonePattern(phoneNumber,country);
+    isValidPhoneNotifier.value = check;
+  }
+
+  bool checkPhonePattern(String phoneNumber,Country country){
     String pattern = country.pattern;
     RegExp regExp = RegExp(pattern);
     String fullNumber = "${country.visualText}${phoneNumber.replaceAll(RegExp(r'[^0-9]'), '')}";
@@ -73,11 +70,27 @@ class PhoneValidator{
     String aux = fullNumber.substring(country.visualText.length);
     bool containsAreaCode = checkAreaCode(country,aux);
     if(containsAreaCode) {
-      isValidPhoneNotifier.value = regExp.hasMatch(fullNumber);
+      return  regExp.hasMatch(fullNumber);
     }else{
-      isValidPhoneNotifier.value = false;
+      return false;
     }
   }
+
+  Map<String,dynamic> checkPhonePattern2(String phoneNumber,Country country){
+    String pattern = country.pattern;
+    RegExp regExp = RegExp(pattern);
+    String fullNumber = "${country.visualText}${phoneNumber.replaceAll(RegExp(r'[^0-9]'), '')}";
+    phone = fullNumber;
+    String aux = fullNumber.substring(country.visualText.length);
+    bool containsAreaCode = checkAreaCode(country,aux);
+    if(containsAreaCode) {
+      log(fullNumber);
+      return {'regExp':regExp,'phoneNumber': fullNumber,'containsAreaCode':true};
+    }else{
+      return {'regExp':regExp,'phoneNumber': aux};
+    }
+  }
+
 
   Country? getCountryByPhone(List<Country> countries,String fullPhoneNumber){
     String normalized = fullPhoneNumber.replaceAll(RegExp(r'[^\d+]'), '');
