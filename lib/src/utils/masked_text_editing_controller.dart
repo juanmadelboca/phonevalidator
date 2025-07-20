@@ -4,9 +4,6 @@ class MaskedTextEditingController extends TextEditingController{
   String _separator ="#";
 
   String _mask ='';
-
-  String _aux='';
-
   void setMask(String mask){
     this._mask =mask;
   }

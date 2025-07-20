@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
 class CheckAnimation extends StatelessWidget{
-  ValueNotifier<bool> isValidPhoneNotifier;
+  final ValueNotifier<bool> isValidPhoneNotifier;
 
   CheckAnimation({required this.isValidPhoneNotifier});
 

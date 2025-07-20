@@ -63,3 +63,8 @@
 - fix the documentation
 - add mask in the phone_summary_view
 - add test cases for phone_auto_detect_view
+
+## 1.0.12
+- fix the documentation
+- remove unused variable
+- minor bugs fixed

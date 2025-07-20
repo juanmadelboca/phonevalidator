@@ -14,4 +14,4 @@ export 'src/view/phone_text_view/phone_summary_view.dart';
 
 
 
-final CellphoneValidator CellPhoneValidator = CellphoneValidatorImpl();
+final CellphoneValidatorCore CellPhoneValidator = CellphoneValidatorImpl();

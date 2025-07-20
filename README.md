@@ -216,6 +216,10 @@ return DropdownMenuItem<String>(
 | +229         | 61234567     | Valid               | Benin     |
 | +267         | 71234567     | Valid               | Botswana  |
 | +226         | 61234567     | Valid               | Burkina Faso |
+| +257         | 61234567     | Valid               | Burundi   |
+| +237         | 61234567     | Valid               | Cameroon  |
+
+
 
 </details>
 

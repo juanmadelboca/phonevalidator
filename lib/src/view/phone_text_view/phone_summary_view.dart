@@ -25,7 +25,6 @@ class PhoneSummaryView extends StatefulWidget {
 ///
 /// It manages the state of the widget, including loading status, country list, and input controllers.
 class _PhoneSummaryView extends State<PhoneSummaryView> {
-  bool _loading = false;
   MaskedTextEditingController _phoneEditingController = MaskedTextEditingController();
   List<Country> countries = CellPhoneValidator.countries;
   Country? country;
@@ -42,8 +41,6 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
   /// This method sets the language in [CountryManager], retrieves the list of countries,
   /// and updates the loading state. It also selects the first country by default if available.
   Future<void> loadLanguage() async {
-
-    _loading = false;
      country =  widget.phoneValidator.getCountryByPhone(countries,widget.fullPhoneNumber.replaceAll('+',''));
     _phoneEditingController.setMask(country!.mask);
   }
@@ -57,7 +54,6 @@ class _PhoneSummaryView extends State<PhoneSummaryView> {
   void didUpdateWidget(covariant PhoneSummaryView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.phoneValidator.lang != oldWidget.phoneValidator.lang) {
-      _loading = false;
       _phoneEditingController.clear();
       widget.phoneValidator.checkPhone('');
       loadLanguage();
