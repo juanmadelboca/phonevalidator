@@ -1,8 +1,4 @@
-List<Map<String, dynamic>> getPhones(){
-  return default_phone;
-}
-
-List<Map<String, dynamic>> default_phone = [
+List<Map<String, dynamic>> mapSupportedCountries = [
   {
     "countryName": "Afghanistan",
     "isoCode": "AF",
@@ -573,7 +569,7 @@ List<Map<String, dynamic>> default_phone = [
     "mask": " #######",
     "emoji": "🇰🇲",
     "areaCodes": [
-     7,3
+      7,3
     ]
   },
   {
@@ -1792,7 +1788,7 @@ List<Map<String, dynamic>> default_phone = [
     "mask": "(##) ###-####",
     "emoji": "🇳🇱",
     "areaCodes": [
-     10,11,12,13,14,15,16,17,18,19,
+      10,11,12,13,14,15,16,17,18,19,
       20,21,22,23,24,25,26,27,28,29,
       30,31,32,33,34,35,36,37,38,39,
       40,41,42,43,44,45,46,47,48,49,
@@ -2220,7 +2216,7 @@ List<Map<String, dynamic>> default_phone = [
     "mask": " #######",
     "emoji": "🇸🇹",
     "areaCodes": [
-     2,9
+      2,9
     ]
   },
   {
@@ -2941,7 +2937,7 @@ List<Map<String, dynamic>> default_phone = [
     "mask": "### ### ###",
     "emoji": "🇿🇲",
     "areaCodes": [21, 211, 212, 213, 214, 215, 216, 217, 218, 219,
-    95,96,97,76
+      95,96,97,76
     ]
   },
   {
