@@ -1,6 +1,6 @@
 import 'package:cellphone_validator/cellphone_validator.dart';
 
-abstract class CellphoneValidator{
+abstract class CellphoneValidatorCore{
   List<Country> _countries=[];
   Future<void> init()async{
   }
@@ -8,7 +8,7 @@ abstract class CellphoneValidator{
   List<Country> get countries => _countries;
 }
 
-class CellphoneValidatorImpl implements CellphoneValidator{
+class CellphoneValidatorImpl implements CellphoneValidatorCore{
   @override
   List<Country> _countries=[];
 
