@@ -2,7 +2,6 @@ library cellphone_validator;
 
 import 'package:cellphone_validator/src/cellphone_validator.dart';
 
-export 'src/controllers/country_manager.dart';
 export 'src/models/country.dart';
 export 'src/controllers/phone_validator.dart';
 export 'cellphone_validator.dart';

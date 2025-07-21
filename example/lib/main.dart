@@ -4,7 +4,6 @@ import 'package:cellphone_validator/cellphone_validator.dart';
 
 void main() {
 
-  CellPhoneValidator.init();
   runApp(const MyApp());
 }
 
@@ -50,21 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
-  loadCountries() async {
-    CountryManager countryManager = CountryManager();
-    countries = await countryManager.getCountries();
-    setState(() {
-
-    });
-  }
-
 
 
   @override
   Widget build(BuildContext context) {
-    if(countries.isEmpty){
-      loadCountries();
-    }
     return ListenableBuilder(listenable: phoneValidator, builder: (context,_)=>
         Scaffold(
       appBar: AppBar(
