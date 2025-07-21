@@ -68,3 +68,11 @@
 - fix the documentation
 - remove unused variable
 - minor bugs fixed
+
+## 2.0.0-dev.1
+- add documentation
+- remove the init method
+
+## 2.0.0
+- fix documentation
+- add support for the countries.

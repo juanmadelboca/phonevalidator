@@ -43,41 +43,48 @@ ar, de, en, es, fr, hi, id, it, ja, ko, pt, ru, ur — and more coming soon.
 ###  Export List
 <details>
 <summary>cellphone_validator</summary>
+
 *  path :`package:cellphone_validator/cellphone_validator.dart`  
 * **Description:** Main package entry point. Re-exports all core classes, models, and widgets for easy access.
 </details>
 
 <details>
 <summary>country_manager</summary>
+
 * path :`package:cellphone_validator/src/controllers/country_manager.dart` 
 * **Description:** Provides logic for managing and retrieving supported countries.   
 </details>
 
 <details>
 <summary>country</summary>
-* path :`package:cellphone_validator/src/controllers/country_manager.dart` 
+
+* path :`package:cellphone_validator/src/controllers/country_manager.dart`
 * **Description:**  Defines the `Country` model, which includes dial codes, masks, and display data.  
 </details>
 
 <details>
 <summary>phone_validator</summary>
-* path :`package:cellphone_validator/src/controllers/phone_validator.dart`    
+
+* path :`package:cellphone_validator/src/controllers/phone_validator.dart`
 * **Description:**  Core validator logic that checks if phone numbers are valid according to country-specific rules.  
 </details>
 
 <details>
 <summary>phone_auto_detect_view</summary>
+
 * path :`package:cellphone_validator/src/view/phone_auto_detect_view/phone_auto_detect_view.dart`    
 * **Description:**  Widget that auto-detects the country from the phone number and validates it.  
 </details>
 <details>
 <summary>phone_input_selector_view</summary>
+
 * path :`package:cellphone_validator/src/view/phone_input_selector_view/phone_input_selector_view.dart`    
 * **Description:**  Widget that allows manual country selection and phone input with validation.  
 </details>
 
 <details>
 <summary>phone_summary_view</summary>
+
 * path :`package:cellphone_validator/src/view/phone_text_view/phone_summary_view.dart`    
 * **Description:**  Widget that displays a phone number with formatting.  
 </details>
@@ -90,13 +97,7 @@ ar, de, en, es, fr, hi, id, it, ja, ko, pt, ru, ur — and more coming soon.
   - ```dart
     import 'package:cellphone_validator/cellphone_validator.dart';
     ```
-- Initialize the validator *before running your app:*
-    ```dart
-    void main(){
-      CallphoneValidator.init(); //initalize and load the countries
-      runApp(const MyApp());
-    }
-    ```
+    
 ### 2. Set Up Your App Widget
    Create your main app widget as usual:
 ```dart
@@ -149,6 +150,7 @@ PhoneAutoDetectView(phoneValidator: phoneValidator.value, fullPhoneNumber: ''),
 You can listen to the `isValidPhoneNotifier` within the controller to react to changes in the phone number's validity in real-time.
 
 ```dart
+
 DropdownButton<String>(
   value: phoneValidator.value.lang,
   icon: const Icon(Icons.language),
