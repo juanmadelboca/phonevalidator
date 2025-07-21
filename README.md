@@ -91,7 +91,7 @@ ar, de, en, es, fr, hi, id, it, ja, ko, pt, ru, ur — and more coming soon.
 
 ## How to Use
 
-### Initialize
+### 1. Initialize
 
 - import the main package:
   - ```dart
@@ -121,51 +121,53 @@ class MyApp extends StatelessWidget {
 
 ### 3. Create a PhoneValidator Controller in Your Stateful Widget
 
-Create a ValueNotifier<PhoneValidator> to manage phone validation and state.
+Create a PhoneValidator to manage phone validation and state.
 ```dart
-ValueNotifier<PhoneValidator> phoneValidator = ValueNotifier(PhoneValidator(lang: 'en'));
+ PhoneValidator phoneValidator = PhoneValidator(lang: 'en');
 ```
 ### 4. Build the UI Using Provided Widgets
 
    Use the package’s widgets like PhoneInputSelectorView, PhoneSummaryView, and PhoneAutoDetectView to build your UI. For example:
-```dart
 
-PhoneInputSelectorView(phoneValidator: phoneValidator.value),
-ListenableBuilder(
-  listenable: phoneValidator.value.isValidPhoneNotifier,
-  builder: (context, _) {
-  return phoneValidator.value.isValidPhoneNotifier.value
-    ? PhoneSummaryView(phoneValidator: phoneValidator.value,
-      fullPhoneNumber: phoneValidator.value.phone.replaceAll('+', ''),
-    )
-    : const Text('Invalid phone');
-  },
-),
+```dart
+/**
+ *  How to use PhoneInputSelectorView
+ * **/
+PhoneInputSelectorView(phoneValidator: phoneValidator),
+```
+
+```dart
+/**
+ *  How to use PhoneSummaryView
+ * **/
+PhoneSummaryView(phoneValidator: phoneValidator, fullPhoneNumber: phoneValidator.phone.replaceAll('+', ''),)
+```
+
+```dart
+/**
+ *  How to use PhoneAutoDetectView
+ * **/
+ 
 PhoneAutoDetectView(phoneValidator: phoneValidator.value, fullPhoneNumber: ''),
 ```
 
-### 5. Add a Language Dropdown to Switch Validation Language Dynamically
+* How to check if some value is true or false
 
+```dart 
+
+    ListenableBuilder(
+      listenable: phoneValidator.isValidPhoneNotifier,
+      builder: (context, _) {
+      return phoneValidator.isValidPhoneNotifier.value
+        ? 'trueAction'
+          :'false action' 
+      },
+    ),
+```
 
 You can listen to the `isValidPhoneNotifier` within the controller to react to changes in the phone number's validity in real-time.
 
-```dart
 
-DropdownButton<String>(
-  value: phoneValidator.value.lang,
-  icon: const Icon(Icons.language),
-  onChanged: (String? newValue) {
-  phoneValidator.value = PhoneValidator(lang: newValue!);
-},
-  items: ['ar','hi','id','it','ja','pt','en', 'es', 'fr','ko','de','ru', 'ur'].map<DropdownMenuItem<String>>((String value) {
-return DropdownMenuItem<String>(
-    value: value,
-    child: Text(value.toUpperCase()),
-  );
-}).toList(),
-);
-  
-```
 ### Summary
 - No need to load countries manually: The package handles it internally as a singleton.
 - Just initialize once with CellPhoneValidator.init().

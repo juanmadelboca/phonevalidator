@@ -76,3 +76,12 @@
 ## 2.0.0
 - fix documentation
 - add support for the countries.
+- improve the documentation
+
+## 2.0.0-dev.1
+- add documentation
+- remove the init method
+
+## 2.0.0
+- fix documentation
+- add support for the countries.
